@@ -1,0 +1,1107 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <title> Algorithms and Data Structures</title>
+   <script type="text/JavaScript">
+     //courtesy of BoogieJack.com
+     function killCopy(e){ return false }
+     function reEnable(){ return true }
+     document.onselectstart=new Function ("return false")
+     if (window.sidebar){
+         document.onmousedown=killCopy
+         document.onclick=reEnable
+     }
+   </script>
+</head>
+<body link="#186727" bgcolor="#FFFFFF">
+
+<p>
+</p><hr><p></p>
+
+<h1><font color="#191970">
+Module 10: Supplemental Material
+</font></h1>
+
+
+
+<p>
+</p><hr><p></p>
+<h4><font color="#000080">
+Expression trees
+</font></h4>
+<p><font color="#000060">
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+
+</font></p><p><font color="#000060">
+What is an <em>expression tree</em>?
+  </font></p><ul><font color="#000060">
+  <li> Consider arithmetic expressions like <i>(35 - 3*(3+2)) / 4</i>:
+     <ul>
+     <li> For our discussion we'll consider the four arithmetic operators: 
+       <i>+, -, *, /</i>.
+     </li><li> We'll study <em>integer arithmetic</em> 
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	Here, the <i>/</i>-operator is integer-division (e.g., 2/4 = 0)
+     </li><li> Each operator is a <em>binary</em> operator
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	Takes two numbers and returns the result (a number)
+     </li><li> There is a natural precedence among operators:
+        <i>\, *, +, -</i>.
+     </li></ul>
+  <p></p></li><li> We'll use parentheses to force a different order, if needed:
+     <ul>
+     <li> Thus <i>35 - 3*3+2/4 = 26</i> (using integer arithmetic)
+     </li><li> Whereas <i>(35 - 3*(3+2)) / 4 = 5</i>
+     </li></ul>
+
+  <p></p></li><li> Now let's examine a <em>computational procedure</em> for expressions:
+    <ul>
+    <li> At each step, we apply one of the operators.
+    </li><li> The rules of precedence and parentheses tell us the order.
+    </li></ul>
+  <p></p></li><li> The computational procedure can be written as an expression tree:
+    <p><img src="Algorithms%20and%20Data%20Structures_files/expr.png"></p><p>
+  </p><p></p></li><li> In an expression tree:
+     <ul>
+     <li> The leaves are numbers (the operands).
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	The <em>value</em> of a leaf is the number.
+     </li><li> The non-leaf nodes are operators.
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	The value of a non-leaf node is the result of the operator applied to the values of the left and right child.
+     </li><li> The root node corresponds to the final value of the expression.
+     </li></ul>
+    <p><img src="Algorithms%20and%20Data%20Structures_files/expr2.png"></p><p>
+  </p></li></font></ul><font color="#000060">
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+<p>
+<font color="#8B4513"><b> Exercise 1:
+</b>
+Draw an expression tree for the expression <i>10/4 + 2*(5+1)</i>.
+Compute the values at each non-leaf node.
+</font>
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+</p><p>
+We will now look at a variety of issues related to expression trees:
+  </p><ul>
+  <li> How to build a tree given an expression.
+  <p></p></li><li> How to evaluate an expression tree, once it's built.
+  <p></p></li><li> How to convert expressions to <em>postfix</em> form and why that's important.
+  </li></ul>
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+<p>
+Let's start with building the tree:
+  </p><ul>
+  <li> The computational procedure for extracting the sub-parts (numbers, and operators) of an expression like <i>(35-3*(3+2))/4</i> is called <em>parsing</em>.
+  <p></p></li><li> To simplify the code, we'll make extensive use of parentheses:
+     <ul>
+     <li> Every number will be surrounded by parentheses.
+     </li><li> Every operator with its operand will be enclosed in parentheses.
+     </li><li> Of course, parsing can be done with theses restrictions
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	But the code is more complicated
+     </li><li> Thus, the expression <i>(35-3*(3+2))/4</i> becomes 
+       <i>(((35)-((3)*((3)+(2))))/(4))</i>
+     </li></ul>
+  </li></ul>
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+<p>
+<font color="#8B4513"><b> Exercise 2:
+</b>
+Convert the expression <i>10/4 + 2*(5+1)</i> into the 
+form above, with complete parentheses.
+</font>
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+</p><p>
+We will build the tree as we go along in the parsing:
+   </p><ul>
+   <li> We'll use this class as the template for each tree node:
+      <font size="+1" color="#000000"><pre>class ExprTreeNode {
+    
+    ExprTreeNode left, right;   <font color="#dc143c">// The usual pointers.</font>
+    boolean isLeaf;             <font color="#dc143c">// Is this a leaf?</font>
+    int value;                  <font color="#dc143c">// If so, we'll store the number here.</font>
+    char op;                    <font color="#dc143c">// If not, we need to know which operator.</font>
+
+}
+      </pre></font>
+     <p></p></li><li> The general idea in our parsing algorithm is:
+        <font size="+1" color="#000000"><pre><b>Algorithm:</b> parse (e)
+<b>Input:</b> expression string e	
+<b>Output:</b> root of expression subtree for e
+  1.    node = make new tree node.
+        <font color="#dc143c">// Bottom-out: it's a number</font>
+  2.    <b>if</b> e is a number
+  3.      node.value = number extracted from string
+  4.      <b>return</b> node 
+  5.    <b>endif</b>
+        <font color="#dc143c">// Recurse</font>
+  6.    node.op = extract operator from e
+  7.    node.left = parse (substring of e to the left of op)
+  8.    node.right = parse (substring of e to the right of op)
+  9.    <b>return</b> node
+     </pre></font>
+  <p></p></li><li> We'll need to write code to look inside a string and identify the left and right substrings (on either side of the operator).
+  </li></ul>
+
+Here's the program:
+<!-- (<a href="ExpressionParser.java">source file</a>) -->
+<font size="+1" color="#000000"><pre><font color="#dc143c">// We need this for the Stack class.</font>
+import java.util.*;
+
+class ExprTreeNode {
+    
+    ExprTreeNode left, right;   <font color="#dc143c">// The usual pointers.</font>
+    boolean isLeaf;             <font color="#dc143c">// Is this a leaf?</font>
+    int value;                  <font color="#dc143c">// If so, we'll store the number here.</font>
+    char op;                    <font color="#dc143c">// If not, we need to know which operator.</font>
+
+}
+
+
+class ExpressionTree {
+
+    ExprTreeNode root;
+
+
+    public void parseExpression (String expr)
+    {
+        root = parse (expr);
+    }
+    
+    
+    <font color="#dc143c">// This is the recursive method that does the parsing.</font>
+
+    ExprTreeNode parse (String expr)
+    {
+        ExprTreeNode node = new ExprTreeNode ();
+        
+	<font color="#dc143c">// Note: expr.charAt(0) is a left paren. </font>
+        <font color="#dc143c">// First, find the matching right paren.</font>
+        int m = findMatchingRightParen (expr, 1);
+        String leftExpr = expr.substring (1, m+1);
+
+        <font color="#dc143c">// Bottom-out condition:</font>
+        if (m == expr.length()-1) {
+            <font color="#dc143c">// It's at the other end ⇒ this is a leaf.</font>
+            String operandStr = expr.substring (1, expr.length()-1);
+            node.isLeaf = true;
+            node.value = getValue (operandStr);
+            return node;
+        }
+        
+        <font color="#dc143c">// Otherwise, there's a second operand and an operator.</font>
+
+	<font color="#dc143c">// Find the left paren to match the rightmost right paren.</font>
+        int n = findMatchingLeftParen (expr, expr.length()-2);
+        String rightExpr = expr.substring (n, expr.length()-1);
+
+	<font color="#dc143c">// Recursively parse the left and right substrings.</font>
+        node.left = parse (leftExpr);
+        node.right = parse (rightExpr);
+        node.op = expr.charAt (m+1);
+
+        return node;
+    }
+    
+
+    int findMatchingRightParen (String s, int leftPos)
+    {
+        <font color="#dc143c">// Given the position of a left-paren in String s,</font>
+	<font color="#dc143c">// find the matching right paren.</font>
+
+	<font color="#dc143c">// Recognize the code?</font>
+
+        Stack&lt;Character&gt; stack = new Stack&lt;Character&gt;();
+        stack.push (s.charAt(leftPos));
+        for (int i=leftPos+1; i &lt; s.length(); i++) {
+            char ch = s.charAt (i);
+            if (ch == '(') {
+                stack.push (ch);
+            }
+            else if (ch == ')') {
+                stack.pop ();
+                if ( stack.isEmpty() ) {
+                    <font color="#dc143c">// This is the one.</font>
+                    return i;
+                }
+            }
+        }
+        <font color="#dc143c">// If we reach here, there's an error.</font>
+        System.out.println ("ERROR: findRight: s=" + s + " left=" + leftPos);
+        return -1;
+    }
+
+
+    int findMatchingLeftParen (String s, int rightPos)
+    {
+        <font color="#dc143c">// ... similar ...</font>
+    }
+
+
+    int getValue (String s)
+    {
+        try {
+            int k = Integer.parseInt (s);
+            return k;
+        }
+        catch (NumberFormatException e) {
+            return -1;
+        }
+    }
+
+} <font color="#dc143c">// end-ExpressionTree</font>
+</pre></font>
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+<p>
+<font color="#8B4513"><b> Exercise 3:
+</b>
+Show how the recursion works for the expression
+<i>(((35)-((3)*((3)+(2))))/(4))</i>. That is, draw
+the sequence of "stack snapshots" showing recursive
+calls to the <font color="#000000"><tt>parse()</tt></font> method.
+</font>
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+</p><p>
+Next, let's write code for computing the value of the expression 
+after it's been parsed:
+  </p><ul>
+  <li> This too is written recursively:
+    <font size="+1" color="#000000"><pre><b>Algorithm:</b> computeValue (node)
+<b>Input:</b> a root of a subtree
+<b>Output:</b> the value of the subtree
+  1.    <b>if</b> node is a leaf
+  2.      <b>return</b> the node's value <font color="#dc143c">// The number that the node represents</font>
+  3.    <b>endif</b>
+  4.    leftValue = computeValue (node.left)
+  5.    rightValue = computeValue (node.right)
+  6.    result = apply node.op to leftValue and rightValue
+  7.    <b>return</b> result
+    </pre></font>
+  <p></p></li><li> In our program: 
+<!-- (<a href="ExpressionParser.java">source file</a>) -->
+    <font size="+1" color="#000000"><pre>class ExpressionTree {
+
+    <font color="#dc143c">// ...</font>
+
+    public int computeValue ()
+    {
+        return compute (root);
+    }
+    
+
+    int compute (ExprTreeNode node)
+    {
+        if (node.isLeaf) {
+            return node.value;
+        }
+
+        <font color="#dc143c">// Otherwise do left and right, and add.</font>
+        int leftValue = compute (node.left);
+        int rightValue = compute (node.right);
+
+        if (node.op == '+') {
+            return leftValue + rightValue;
+        }
+        else if (node.op == '-') {
+            return leftValue - rightValue;
+        }
+        else if (node.op == '*') {
+            return leftValue * rightValue;
+        }
+        else {
+            return leftValue / rightValue;
+        }
+
+    }
+
+    <font color="#dc143c">// ...</font>
+
+}
+    </pre></font>
+  <p></p></li><li> Thus, we can now parse and compute expressions:
+    <font size="+1" color="#000000"><pre>    public static void main (String[] argv)
+    {
+        <font color="#dc143c">// A test expression:</font>
+        String s = "(((35)-((3)*((3)+(2))))/(4))";
+
+	<font color="#dc143c">// Create a parser instance.</font>
+        ExpressionTree expTree = new ExpressionTree ();
+
+	<font color="#dc143c">// Parse the expression (which creates the tree).</font>
+        expTree.parseExpression (s);
+
+	<font color="#dc143c">// Compute the value and print.</font>
+        int v = expTree.computeValue ();
+        System.out.println (s + " = " + v);
+    }
+    </pre></font>
+  </li></ul>
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+<p>
+Why did we do all this?
+  </p><ul>
+  <li> <em>Parsing</em> is an integral part of compilation
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	We only explored a small part of parsing (expressions)
+  <p></p></li><li> Parsing and trees are intimately related
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	The result of parsing a program is a tree
+  <p></p></li><li> The output of a compiler is executable code of some kind
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	Parsing is a pre-requisite step to generating executable code.
+  </li></ul>
+
+
+
+
+<p>
+</p><hr><p></p>
+<h4><font color="#000080">
+Postfix expressions
+</font></h4>
+<p><font color="#000060">
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+
+</font></p><p><font color="#000060">
+What are they?
+  </font></p><ul><font color="#000060">
+  <li> For simplicity, we'll consider only the four integer arithmetic
+    operators: <i>+, -, *, /</i>.
+  <p></p></li><li> In a postfix expression:
+     <ul>
+     <li> The operands are listed before the operators.
+     </li><li> Operators just after the two operands.
+     </li><li> Thus, the expression <i>3 + 4</i> in postfix becomes: <i>3 4 +</i>.
+     </li><li> Example: the expression <i>5*(3+4)</i> becomes: <i> 5 3 4 + *</i>.
+     </li><li> Example: the expression <i>(35 - 3*(3+2)) / 4</i> becomes:
+        <i>35 3 3 2 + * - 4 /</i>
+     </li></ul>
+  </li></font></ul><font color="#000060">
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+<p>
+<font color="#8B4513"><b> Exercise 4:
+</b>
+Convert the expression <i>10/4 + 2*(5+1)</i> into postfix form.
+</font>
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+</p><p>
+Postfix expressions are evaluated using a stack:
+  </p><ul>
+  <li> A postfix expression is read from left to right.
+  <p></p></li><li> Every operand is pushed on the stack.
+  <p></p></li><li> When an operator is encountered, it is applied to the top two operands on the stack.
+  <p></p></li><li> The result of the operation is pushed back on the stack
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	The stack only contains numbers
+  </li></ul>
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+<p>
+Example: let's evaluate the expression <i>35 3 3 2 + * - 4 /</i>
+  </p><ul>
+  <li> Initially the stack is empty:
+    <p><img src="Algorithms%20and%20Data%20Structures_files/expr3.png"></p><p>
+  </p></li><li> The first four operands get pushed on the stack:
+    <p><img src="Algorithms%20and%20Data%20Structures_files/expr4.png"></p><p>
+  </p></li><li> Then, the operator <i>+</i> is applied to the top two operands (<i>3</i> and <i>2</i>)
+    <p><img src="Algorithms%20and%20Data%20Structures_files/expr5.png"></p><p>
+  </p></li><li> Next, the operator <i>*</i> is applied to <i>5</i> and <i>3</i>:
+    <p><img src="Algorithms%20and%20Data%20Structures_files/expr6.png"></p><p>
+  </p></li><li> The operator <i>-</i> is applied to <i>15</i> and <i>35</i> 
+    (as <i>35-15</i>)
+    <p><img src="Algorithms%20and%20Data%20Structures_files/expr7.png"></p><p>
+  </p></li><li> The operand <i>4</i> is pushed on the stack:
+    <p><img src="Algorithms%20and%20Data%20Structures_files/expr8.png"></p><p>
+  </p></li><li> Finally, the operator <i>/</i> is applied to <i>4</i> and <i>20</i>:
+    <p><img src="Algorithms%20and%20Data%20Structures_files/expr9.png"></p><p>
+  </p></li></ul>
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+<p>
+<font color="#8B4513"><b> Exercise 5:
+</b>
+Convert the expression <i>10/4 + 2*(5+1)</i> into postfix form
+and show the steps in evaluating the expression using a stack.
+Draw the stack at each step.
+</font>
+
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+</p><p>
+Why is this useful?
+  </p><ul>
+  <li> First, let's list the stack operations in the order
+    they were used in the previous example:
+    <font size="+1" color="#000000"><pre>      push 35
+      push 3
+      push 3
+      push 2
+      add
+      mult
+      sub
+      push 4
+      divide
+    </pre></font>
+  <p></p></li><li> We can think of these as <em>instructions</em> for operating
+    a stack-based calculator.
+  </li></ul>
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+<p>
+<font color="#8B4513"><b> Exercise 6:
+</b>
+Convert the expression <i>10/4 + 2*(5+1)</i> into postfix form
+and write down the push/arithmetic "instructions" corresponding
+to this expression.
+</font>
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+</p><p>
+  </p><ul>
+  <li> There are computer architectures whose instruction sets
+     are similar
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	They use a stack-based calculator as part of the CPU.
+  <p></p></li><li> Similarly there are virtual machines (e.g., Java's VM)
+    that use a stack-based calculator
+  <p></p></li><li> The list of "instructions" is in fact a form of
+    executable code for these kinds of machines.
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	Thus, we've given a sense of how arithmetic expressions are compiled into executable code.
+  </li></ul>
+ 
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+<p>
+Now let's write code to create postfix from an expression tree
+and then to evaluate it using a stack:
+  </p><ul>
+  <li> The conversion to postfix is easy: simply traverse the tree in postfix order!
+  <p></p></li><li> For example, we can add such a method to our
+    class <font color="#000000"><tt>ExpressionParser</tt></font>:
+    <font size="+1" color="#000000"><pre>class ExpressionTree {
+
+    ExprTreeNode root;
+ 
+    public String convertToPostfix ()
+    {
+        String str = postOrder (root);
+        return str;
+    }
+    
+    String postOrder (ExprTreeNode node)
+    {
+        String result = "";
+        if (node.left != null) {
+            result += postOrder (node.left);
+        }
+        if (node.right != null) {
+            result += " " + postOrder (node.right);
+        }
+        if (node.isLeaf) {
+            result += " " + node.value;
+        }
+        else {
+            result += " " + node.op;
+        }
+        return result;
+    }
+
+} <font color="#dc143c">//end-ExpressionParser</font>
+    </pre></font>
+
+  <p></p></li><li> Let's write code to evaluate a postfix-expression string
+    using a stack:
+<!--    (<a href="ExpressionParser.java">source file</a>) -->
+    <font size="+1" color="#000000"><pre>class PostfixEvaluator {
+
+    public int compute (String postfixExpr)
+    {
+	<font color="#dc143c">// Create a stack: all our operands are integers.</font>
+        Stack&lt;Integer&gt; stack = new Stack&lt;Integer&gt;();
+
+	<font color="#dc143c">// Use the Scanner class to help us extract numbers or operators:</font>
+        Scanner scanner = new Scanner (postfixExpr);
+
+        while (scanner.hasNext()) {
+
+            if (scanner.hasNextInt()) {
+		<font color="#dc143c">// It's an operand ⇒ push it on the stack.</font>
+                int N = scanner.nextInt();
+                stack.push (N);
+            }
+            else {
+                <font color="#dc143c">// It's an operator ⇒ apply the operator to the top two operands</font>
+                String opStr = scanner.next();
+                int b = stack.pop(); <font color="#dc143c">// Note: b is popped first.</font>
+                int a = stack.pop();
+                if (opStr.equals("+")) {
+                    stack.push (a+b);
+                }
+                else if (opStr.equals("-")) {
+                    stack.push (a-b);
+                }
+                else if (opStr.equals("*")) {
+                    stack.push (a*b);
+                }
+                else if (opStr.equals("/")) {
+                    stack.push (a/b);
+                }
+            }
+
+        } <font color="#dc143c">// end-while</font>
+        
+        <font color="#dc143c">// Result is on top.</font>
+        return stack.pop();
+    }
+
+} <font color="#dc143c">//end-PostfixEvaluator</font>
+    </pre></font>
+  
+  </li></ul>
+
+
+
+
+<p>
+</p><hr><p></p>
+<h4><font color="#000080">
+Enumerating the elements of a data structure
+</font></h4>
+<p><font color="#000060">
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+
+</font></p><p><font color="#000060">
+Let's revisit our <em>binary tree map</em>:
+  </font></p><ul><font color="#000060">
+  <li> Recall: a map stores key-value pairs.
+  <p></p></li><li> Suppose we create a map instance and put some key-value pairs as follows:
+<!--    (<a href="BinaryTreeMapExample3.java">source file</a>) -->
+    <font size="+1" color="#000000"><pre>class TribeInfo {
+
+    <font color="#dc143c">// ... same as before ...</font>
+
+} 
+
+
+public class BinaryTreeMapExample3 {
+
+    public static void main (String[] argv)
+    {
+        <font color="#dc143c">// Create an instance.</font>
+        BinaryTreeMap3 tree = new BinaryTreeMap3 ();
+
+        <font color="#dc143c">// Put some key-value pairs inside.</font>
+        TribeInfo info = new TribeInfo ("Ewok", 3, "Endor");
+        tree.add ( new KeyValuePair (info.name, info) );
+
+        <font color="#dc143c">// ... add the remaining data ...</font>
+
+    }
+
+}
+    </pre></font>
+  <p></p></li><li> Now suppose we wish to work with the entire collection,
+    say, as an array:
+    <font size="+1" color="#000000"><pre>	<font color="#dc143c">// Get all the key-value pairs:</font>
+        KeyValuePair[] tribes = tree.getAllKeyValuePairs ();
+
+	<font color="#dc143c">// Print.</font>
+        for (int i=0; i &lt; tribes.length; i++) {
+            System.out.println (tribes[i]);
+        }
+    </pre></font>
+  <p></p></li><li> Then, we need to have the binary-tree return all its elements
+   as an array.
+  <p></p></li><li> This feature is usually provided by implementations of data structures
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	It enables users of the data structure to work with the entire collection.
+
+  </li></font></ul><font color="#000060">
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+<p>
+How do we implement the method <font color="#000000"><tt>getAllKeyValuePairs()</tt></font>?
+  </p><ul>
+  <li> We will build an array and use an in-order traversal to place
+    elements in the array.
+  <p></p></li><li> Here's the code: 
+<!-- (<a href="BinaryTreeMap3.java">source file</a>) -->
+     <font size="+1" color="#000000"><pre>public class BinaryTreeMap3 {
+
+    TreeNode root = null;
+    int numItems = 0;
+
+    KeyValuePair[] allPairs;  <font color="#dc143c">// We will place the elements in this array.</font>
+    int currentIndex = 0;
+
+    <font color="#dc143c">// ... other methods like add(), contains() ... etc</font>
+
+
+    public KeyValuePair[] getAllKeyValuePairs ()
+    {
+        if (root == null) {
+            return null;
+        }
+        
+        allPairs = new KeyValuePair [numItems];
+        inOrderTraversal (root);
+        return allPairs;
+    }
+    
+
+    void inOrderTraversal (TreeNode node)
+    {
+        <font color="#dc143c">// Visit left subtree first.</font>
+        if (node.left != null) {
+            inOrderTraversal (node.left);
+        }
+
+	<font color="#dc143c">// Then current node.</font>
+        allPairs[currentIndex] = node.kvp;
+        currentIndex ++;
+
+	<font color="#dc143c">// Now right subtree.</font>
+        if (node.right != null) {
+            inOrderTraversal (node.right);
+        }
+    }
+
+} <font color="#dc143c">//end-BinaryTreeMap3</font>
+
+     </pre></font>
+  </li></ul>
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+<p>
+<font color="#8B4513"><b> Exercise 7:
+</b>
+Download <a href="https://www2.seas.gwu.edu/~simhaweb/cs1112/modules/module10/suppl/BinaryTreeMap3.java">BinaryTreeMap3.java</a>
+and <a href="https://www2.seas.gwu.edu/~simhaweb/cs1112/modules/module10/suppl/BinaryTreeMapExample3.java">BinaryTreeMapExample3.java</a>,
+compile and execute. You will notice that the output is sorted,
+whereas the input (the order in which the strings were added) 
+was not. How/where did the sorting occur?
+</font>
+
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+</p><p>
+Using special purpose iterator classes:
+  </p><ul>
+  <li> Sometimes it is more convenient to use iterator classes.
+  <p></p></li><li> For example: 
+<!-- (<a href="StringExample.java">source file</a>) -->
+    <font size="+1" color="#000000"><pre>import java.util.*;
+
+public class StringExample {
+
+    public static void main (String[] argv)
+    {
+	<font color="#dc143c">// Make a tree (of strings) and add stuff to it.</font>
+	TreeSet&lt;String&gt; tribes = new TreeSet&lt;String&gt;();
+	tribes.add ("Ewok");
+	tribes.add ("Aqualish");
+	tribes.add ("Gungan");
+	tribes.add ("Amanin");
+	tribes.add ("Jawa");
+	tribes.add ("Hutt");
+	tribes.add ("Cerean");
+
+	<font color="#dc143c">// Get the data structure to return an object that does the iteration.</font>
+	Iterator iter = tribes.iterator ();
+
+	<font color="#dc143c">// Now use the iterator object to perform iteration.</font>
+	while (iter.hasNext()) {
+	    String name = (String) iter.next ();    <font color="#dc143c">// Note: a cast is required.</font>
+	    System.out.println (name);
+	}
+    }
+
+}
+    </pre></font>
+  </li></ul>
+
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+<p>
+<font color="#8B4513"><b> Exercise 8:
+</b>
+Why is a cast required above?
+</font>
+
+
+</p><p> It turns out that we can use an iterator specialized
+to strings:
+<!-- (<a href="StringExample2.java">source file</a>) -->
+<font size="+1" color="#000000"></font></p><pre><font size="+1" color="#000000">	Iterator&lt;String&gt; iter = tribes.iterator ();
+	while (iter.hasNext()) {
+	    String name = iter.next ();      <font color="#dc143c">// No cast needed.</font>
+	    System.out.println (name);
+	}
+</font></pre>
+
+Note:
+  <ul>
+  <li> How do we build this feature into our own data structures?
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	This is a somewhat complicated topic  
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	See Modules 6-7 of the 
+	  <a href="http://www.seas.gwu.edu/~simhaweb/java/">advanced Java material</a>
+  <p></p></li><li> It is even more complicated to write our own iterable versions of 
+   data structures that can be specialized to particular types (e.g., strings or integers).
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	This involves the murky details of <em>generic types</em> in Java.
+  </li></ul>
+
+
+
+<p>
+</p><hr><p></p>
+<h4><font color="#000080">
+An application: word counts
+</font></h4>
+<p><font color="#000060">
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+
+</font></p><p><font color="#000060">
+Let us develop a simple application of map's: count the number
+of occurences of words in a body of text:
+  </font></p><ul><font color="#000060"> 
+  <li> For example, consider this body of text:
+       <font size="+1" color="#000000"><pre>          The quick brown fox jumped over the lazy dog, after which 
+          the dog jumped on the fox and bit the fox, 
+          after which their friendship ended rather abruptly.
+       </pre></font>
+       For this example, we want the output to read something like:
+       <font size="+1" color="#000000"><pre>          4 the         <font color="#dc143c">// 4 occurences of "the" in the text</font>
+	  3 fox         <font color="#dc143c">// 3 occurences of "fox" in the text</font>
+	  2 jumped      <font color="#dc143c">// ... etc</font>
+	  2 dog
+	  2 after
+	  2 which
+	  1 quick
+          1 brown
+	  ...
+       </pre></font>
+  <p></p></li><li> Our algorithm for this application is quite simple:
+     <font size="+1" color="#000000"><pre><b>Algorithm:</b> wordCount 
+<b>Output:</b> word counts
+  1.    <b>while</b> more words
+  2.      w = getNextWord()
+  3.      <b>if</b> w is not in dictionary
+  4.        add w to dictionary
+  5.        set w's count to 1
+  6.      <b>else</b>
+  7.        increment w's count
+  8.      <b>endif</b>
+  9.    <b>endwhile</b>
+  10.   Print counts for each word
+     </pre></font>
+
+  <p></p></li><li> We will compare a tree data structure with a list.
+  </li></font></ul><font color="#000060">
+
+Here's the program:
+<!-- (<a href="WordCount.java">source file</a>) -->
+<font size="+1" color="#000000"></font><pre><font size="+1" color="#000000">import java.util.*;
+
+public class WordCount {
+
+    public static void main (String[] argv)
+    {
+        countWordsInFileUsingTree ("testfile");
+	countWordsInFileUsingList ("testfile");
+    }
+
+
+    static void countWordsInFileUsingTree (String fileName)
+    {
+	<font color="#dc143c">// Create an instance of the data structure.</font>
+        BinaryTreeMap3 tree = new BinaryTreeMap3 ();
+
+	<font color="#dc143c">// Read a text file and extract the words into an array.</font>
+        String[] words = WordTool.readWords (fileName);
+        System.out.println ("Read in " + words.length + " words");
+
+	<font color="#dc143c">// Put words into data structure. If a word repeats, increment its count.</font>
+        for (int i=0; i<words.length; i++)="" {="" if="" (!="" tree.contains="" (words[i])="" )="" tree.add="" (="" new="" keyvaluepair="" (words[i],="" integer(1))="" );="" }="" else="" <font="" color="#dc143c">// Increment count.</words.length;></font>
+                KeyValuePair kvp = tree.getKeyValuePair (words[i]);
+		Integer count = (Integer) kvp.value;
+                kvp.value = new Integer (count+1);
+            }
+        }
+
+	<font color="#dc143c">// Note use of array:</font>
+        KeyValuePair[] uniqueWords = tree.getAllKeyValuePairs ();
+        System.out.println ("Found " + uniqueWords.length + " unique words");
+
+	<font color="#dc143c">// Sort the words by count.</font>
+        Arrays.sort (uniqueWords, new KeyValueComparator());
+        for (int i=0; i &lt; uniqueWords.length; i++) {
+            System.out.println (uniqueWords[i].value + "  " + uniqueWords[i].key);
+        }
+    }
+
+
+    static void countWordsInFileUsingList (String fileName)
+    {
+	<font color="#dc143c">// Our data structure is now a linked list.</font>
+        OurLinkedListMap list = new OurLinkedListMap ();
+
+	<font color="#dc143c">// ... everything else is the same ...</font>
+
+    }
+
+} <font color="#dc143c">//end-WordCount</font>
+</pre></font>
+
+Note:
+  <ul>
+  <li> We have hidden text-parsing and word-extraction in <font color="#000000"><tt>WordTool</tt></font>.
+  <p></p></li><li> The relevant data structure methods we've used are:
+     <ul>
+     <li> <font color="#000000"><tt>add()</tt></font>
+     </li><li> <font color="#000000"><tt>contains()</tt></font>
+     </li><li> <font color="#000000"><tt>getAllKeyValuePairs()</tt></font> (to get all the key-value pairs as an array)
+     </li></ul>
+  <p></p></li><li> Notice why we get all the key-value pairs as an array
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	So that we can sort by value
+  </li></ul>
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+<p>
+<font color="#8B4513"><b> Exercise 9:
+</b>
+Download <a href="https://www2.seas.gwu.edu/~simhaweb/cs1112/modules/module10/suppl/BinaryTreeMap3.java">BinaryTreeMap3.java</a>,
+<a href="https://www2.seas.gwu.edu/~simhaweb/cs1112/modules/module10/suppl/OurLinkedListMap.java">OurLinkedListMap.java</a>,
+<a href="https://www2.seas.gwu.edu/~simhaweb/cs1112/modules/module10/suppl/WordCount.java">WordCount.java</a> and 
+<a href="https://www2.seas.gwu.edu/~simhaweb/cs1112/modules/module10/suppl/testfile">testfile</a>. Compile and execute 
+<font color="#000000"><tt>WordCount</tt></font> to make sure it works.
+Then, perform word counts for 
+<a href="https://www2.seas.gwu.edu/~simhaweb/cs1112/modules/module10/suppl/huckfinn.txt">this classic book</a>
+and 
+<a href="https://www2.seas.gwu.edu/~simhaweb/cs1112/modules/module10/suppl/sherlock.txt">this one</a>.
+You can comment out the linked-list version (since it
+does the same thing and does it slower).
+Find another free book on-line and apply <font color="#000000"><tt>WordCount</tt></font> to the book.
+</font>
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+</p><p>
+<font color="#8B4513"><b> Exercise 10:
+</b>
+Compare the performance between a tree, a hashtable and
+a linked list for the two large texts above.
+You will need to add code to use a hashtable for
+counting. Use <a href="https://www2.seas.gwu.edu/~simhaweb/cs1112/modules/module10/suppl/OurHashMap.java">OurHashMap.java</a>
+as the hashtable.
+</font>
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+</p><p>
+Finally, let us explain how we used Java's sorting algorithm above:
+  </p><ul>
+  <li> First, let's examine the usage:
+     <font size="+1" color="#000000"><pre>        KeyValuePair[] uniqueWords = tree.getAllKeyValuePairs ();
+
+	<font color="#dc143c">// Sort the words by count.</font>
+        Arrays.sort (uniqueWords, new KeyValueComparator());
+     </pre></font>
+     <ul>
+     <li> Thus, we start with an unsorted array of objects (<font color="#000000"><tt>uniqueWords</tt></font>)
+     </li><li> In this case, each object is a <font color="#000000"><tt>KeyValuePair</tt></font>.
+     </li><li> We call the method <font color="#000000"><tt>sort()</tt></font> in the <font color="#000000"><tt>Arrays</tt></font> class in the library.
+     </li><li> We pass on an instance of <font color="#000000"><tt>KeyValueComparator</tt></font> to the sort algorithm.
+     </li></ul>
+  <p></p></li><li> Obviously, Java's sort algorithm does not know how to sort
+    arbitrary objects that we've created ourselves (such as <font color="#000000"><tt>KeyValuePair</tt></font>)
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	Recall: we wrote <font color="#000000"><tt>KeyValuePair</tt></font> ourselves.
+  <p></p></li><li> Every sort algorithm needs to be able to compare any two elements
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	Thus, a sort algorithm needs to be able to compare two <font color="#000000"><tt>KeyValuePair</tt></font> instances.
+  <p></p></li><li> The idea is: we will write a method to do such a comparison
+    and pass that to Java's sort algorithm.
+  <p></p></li><li> But how do we pass a method?
+    <ul>
+    <li> We can't. Instead, we pass a class with our method.
+    </li><li> In our example, that class is <font color="#000000"><tt>KeyValueComparator</tt></font>, a class that we will write.
+    </li></ul>
+  <p></p></li><li> How does Java's sort method know which method to call inside <font color="#000000"><tt>KeyValueCompartor</tt></font>?
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+	Since Java's sort method is <em>already written and
+        compiled</em>, it already calls some method
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+        It is this method that we need to <em>override</em>.
+  </li></ul>
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+<p>
+Let's look at some of the details:
+  </p><ul>
+  <li> The signature of Java's sort method (the one that we want to
+  use) is:
+    <font size="+1" color="#000000"><pre>    public void sort  (Object[] inputArray, Comparator comp)
+    </pre></font>
+    (Note: we have simplified it slightly to remove references to
+  generic types).
+  <p></p></li><li> If we look for <font color="#000000"><tt>Comparator</tt></font> in the library, we see
+    that it is an interface:
+    <font size="+1" color="#000000"><pre>    public interface Comparator {
+
+        public int compare (Object o1, Object o2);
+
+        public boolean equals (Object obj);
+    
+    }
+    </pre></font>
+    (Again, we've simplified this by removing generic types).
+  <p></p></li><li> Thus, Java's sort algorithm will call the <font color="#000000"><tt>compare</tt></font>
+  method of whatever class is passed in as <font color="#000000"><tt>Comparator</tt></font> in
+  order to compare the objects in <font color="#000000"><tt>inputArray</tt></font>.
+  <p></p></li><li> What we are going to do is pass an array of
+  <font color="#000000"><tt>KeyValuePair</tt></font>'s as the first argument.
+  <p></p></li><li> For the second argument, we will create an instance of:
+     <font size="+1" color="#000000"><pre>class KeyValueComparator implements Comparator {
+
+    <font color="#dc143c">// We decide how to compare two key-value pairs. Java's sort</font>
+    <font color="#dc143c">// algorithm will repeatedly call this as it compares elements.</font>
+
+    public int compare (KeyValuePair kvp1, KeyValuePair kvp2) 
+    {
+        <font color="#dc143c">// Note: the .value variable is of type Object. That's why we need the cast.</font>
+	Integer count1 = (Integer) kvp1.value;
+	Integer count2 = (Integer) kvp2.value;
+
+        if (count1 &gt; count2) {        
+            return -1;
+        }
+        else if (count1 &lt; count2) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+
+
+    <font color="#dc143c">// We're required to implement this as part of implementing</font>
+    <font color="#dc143c">// the interface.</font>
+
+    public boolean equals (Object obj)
+    {
+        return false;
+    }
+
+} <font color="#dc143c">//end-KeyValueComparator</font>
+     </pre></font>
+     Note:
+       <ul>
+       <li> Notice that our <font color="#000000"><tt>KeyValueComparator</tt></font> class
+        <font color="#000000"><tt>implements</tt></font> the interface <font color="#000000"><tt>Comparator</tt></font>
+       </li><li> Here, we have provided an implementation of
+        <font color="#000000"><tt>compare()</tt></font> (and <font color="#000000"><tt>equals()</tt></font>, which is required by
+        the interface but not used by the sort algorithm).
+       </li><li> We write whatever code we like inside <font color="#000000"><tt>compare()</tt></font>.
+       </li><li> Of course, we really do want to properly compare two 
+         <font color="#000000"><tt>KeyValuePair</tt></font> objects.
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+        Which is why we extract the integer's from the objects and
+        compare them.
+       </li></ul>
+  <p></p></li><li> When Java's sort gets this object, it calls
+  <font color="#000000"><tt>compare()</tt></font> whenever it needs to (which is very often).
+  <p></p></li><li> Finally, we note that <font color="#000000"><tt>Comparator</tt></font> is really intended
+   to be written for specific types, which we removed to simplify
+   the description.
+        <br> &nbsp;&nbsp;&nbsp;&nbsp; ⇒
+        In our code, we specified the type as <font color="#000000"><tt>KeyValuePair</tt></font>:
+        <font size="+1" color="#000000"><pre>class KeyValueComparator implements Comparator&lt;KeyValuePair&gt; {
+
+    public int compare (KeyValuePair kvp1, KeyValuePair kvp2) 
+    {
+        <font color="#dc143c">// ...</font>
+    }
+
+}
+        </pre></font>
+  </li></ul>
+
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+<p>
+<font color="#8B4513"><b> Exercise 11:
+</b>
+Add a counter to <font color="#000000"><tt>KeyValueComparator</tt></font> above to count how often
+the <font color="#000000"><tt>compare()</tt></font> method is called. What is the relation between
+this count and the size of the array being sorted?
+</font>
+
+
+
+<table> <tbody><tr> <td height="6"> </td> </tr> </tbody></table>
+</p><p>
+<font color="#8B4513"><b> Exercise 12:
+</b>
+Examine the logic in <font color="#000000"><tt>compare()</tt></font>. What would happen if
+we switch the first two <font color="#000000"><tt>return</tt></font> statements to read:
+  <font size="+1" color="#000000"></font></font></p><pre><font color="#8B4513"><font size="+1" color="#000000">        if (count1 &gt; count2) {        
+            return 1;
+        }
+        else if (count1 &lt; count2) {
+            return -1;
+        }
+        else {
+            return 0;
+        }
+  </font></font></pre><font color="#8B4513">
+Try it out and see what happens. Then explain what happened.
+</font>
+
+
+<br><br>
+<hr>
+<center>
+<font size="1">
+© 2006, Rahul Simha (revised 2017)
+</font>
+</center>
+
+
+
+
+</font></font></font></body></html>

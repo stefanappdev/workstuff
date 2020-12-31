@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html class="wf-proximanova-n4-active wf-proximanova-n7-active wf-proximanova-i4-active wf-proximanova-i7-active wf-active" lang="en-US"><!-- Le HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
+	<script src="https://html5shim.googlecode.com/svn/trunk/html5.js">
+	</script>
+<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge"><script type="text/javascript" src="graphs_files/0d4d84695b"></script><script src="graphs_files/nr-1184.js"></script><script async="" src="graphs_files/analytics.js"></script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"0d4d84695b",applicationID:"12680714"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,y=["click","keydown","mousedown","pointerdown","touchstart"];y.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?f(e,c,o):o()}function n(n,r,i,o){if(!p.aborted||o){e&&e(n,r,i);for(var a=t(i),c=v(n),f=c.length,u=0;u<f;u++)c[u].apply(a,r);var d=s[w[n]];return d&&d.push([b,n,r,a]),a}}function l(e,t){h[e]=v(e).concat(t)}function m(e,t){var n=h[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return h[e]||[]}function g(e){return d[e]=d[e]||i(n)}function y(e,t){u(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var h={},w={},b={on:l,addEventListener:l,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:y,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var c="nr@context",f=e("gos"),u=e(6),s={},d={},p=t.exports=i();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1184.min.js"},w=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:w,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0},{}],"wrap-function":[function(e,t,n){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(7),a="nr@original",c=Object.prototype.hasOwnProperty,f=!1;t.exports=function(e,t){function n(e,t,n,i){function nrWrapper(){var r,a,c,f;try{a=this,r=o(arguments),c="function"==typeof n?n(r,a):n||{}}catch(u){p([u,"",[r,a,i],c])}s(t+"start",[r,a,i],c);try{return f=e.apply(a,r)}catch(d){throw s(t+"err",[r,a,d],c),d}finally{s(t+"end",[r,a,f],c)}}return r(e)?e:(t||(t=""),nrWrapper[a]=e,d(e,nrWrapper),nrWrapper)}function u(e,t,i,o){i||(i="");var a,c,f,u="-"===i.charAt(0);for(f=0;f<t.length;f++)c=t[f],a=e[c],r(a)||(e[c]=n(a,u?c+i:i,o,c))}function s(n,r,i){if(!f||t){var o=f;f=!0;try{e.emit(n,r,i,t)}catch(a){p([a,n,r,i])}f=o}}function d(e,t){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(e);return n.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(r){p([r])}for(var i in e)c.call(e,i)&&(t[i]=e[i]);return t}function p(t){try{e.emit("internal-error",t)}catch(n){}}return e||(e=i),n.inPlace=u,n.flag=a,n}},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" href="https://courses.lumenlearning.com/math4liberalarts/wp-content/themes/bombadil/favicon.ico">
+<title>Euler and Hamiltonian Paths and Circuits | Lumen Learning Mathematics for the Liberal Arts</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://courses.lumenlearning.com/math4liberalarts/xmlrpc.php">
+
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/">
+<link rel="dns-prefetch" href="https://courses.lumenlearning.com/">
+<link rel="dns-prefetch" href="https://use.typekit.net/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/courses.lumenlearning.com\/math4liberalarts\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.8"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="graphs_files/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="wp-in-post-ads-css" href="graphs_files/wp-in-post-ads-public.css" type="text/css" media="all">
+<link rel="stylesheet" id="pressbooks/structure-css" href="graphs_files/structure.css" type="text/css" media="screen, print">
+<link rel="stylesheet" id="pressbooks/webfonts-css" href="graphs_files/css.css" type="text/css" media="all">
+<link rel="stylesheet" id="pressbooks/theme-css" href="graphs_files/style.css" type="text/css" media="screen, print">
+<link rel="stylesheet" id="dashicons-css" href="graphs_files/dashicons.css" type="text/css" media="all">
+<link rel="stylesheet" id="pressbooks/a11y-css" href="graphs_files/a11y.css" type="text/css" media="screen">
+<script type="text/javascript" src="graphs_files/jquery.js"></script>
+<script async="" type="text/javascript" src="graphs_files/jquery-migrate.js"></script>
+<script type="text/javascript" src="graphs_files/MathJax.js"></script>
+<script async="" type="text/javascript" src="graphs_files/toc.js"></script>
+<script async="" type="text/javascript" src="graphs_files/a11y.js"></script>
+<script type="text/javascript" src="graphs_files/iframe-resizer.js"></script>
+<script type="text/javascript" src="graphs_files/h5p-resizer.js"></script>
+<script type="text/javascript" src="graphs_files/mje6fya.js"></script>
+<script type="text/javascript" src="graphs_files/html5shiv.js"></script>
+<link rel="https://api.w.org/" href="https://courses.lumenlearning.com/math4liberalarts/wp-json/">
+<link rel="prev" title="Conclusion" href="https://courses.lumenlearning.com/math4liberalarts/chapter/putting-it-together-graph-theory/">
+<link rel="next" title="Discussion: Voting Theory" href="https://courses.lumenlearning.com/math4liberalarts/chapter/discussion-voting-theory-draft/">
+<link rel="canonical" href="https://courses.lumenlearning.com/math4liberalarts/chapter/introduction-euler-paths/">
+<link rel="shortlink" href="https://courses.lumenlearning.com/math4liberalarts/?p=1219">
+<link rel="alternate" type="application/json+oembed" href="https://courses.lumenlearning.com/math4liberalarts/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcourses.lumenlearning.com%2Fmath4liberalarts%2Fchapter%2Fintroduction-euler-paths%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://courses.lumenlearning.com/math4liberalarts/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcourses.lumenlearning.com%2Fmath4liberalarts%2Fchapter%2Fintroduction-euler-paths%2F&amp;format=xml">
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-73352819-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<meta itemprop="author" content="David Lippman" id="author">
+<meta itemprop="contributor" content="" id="contributor">
+<meta itemprop="copyrightHolder" content="Lumen Learning" id="copyrightHolder">
+<meta itemprop="editor" content="" id="editor">
+<meta itemprop="image" content="https://courses.lumenlearning.com/math4liberalarts/wp-content/uploads/sites/1732/2016/11/abstract-1414331_1280.jpg" id="image">
+<meta itemprop="inLanguage" content="en" id="inLanguage">
+<style type="text/css">.tk-proxima-nova{font-family:"proxima-nova",sans-serif;}</style><style type="text/css">@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/f80f1d/00000000000000003b9aefb8/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/f80f1d/00000000000000003b9aefb8/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/f80f1d/00000000000000003b9aefb8/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/29352b/00000000000000003b9aefb9/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("woff2"),url(https://use.typekit.net/af/29352b/00000000000000003b9aefb9/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("woff"),url(https://use.typekit.net/af/29352b/00000000000000003b9aefb9/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("opentype");font-weight:700;font-style:italic;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/af96c8/00000000000000003b9aefc0/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/af96c8/00000000000000003b9aefc0/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/af96c8/00000000000000003b9aefc0/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/20aa1e/00000000000000003b9aefc1/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("woff2"),url(https://use.typekit.net/af/20aa1e/00000000000000003b9aefc1/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("woff"),url(https://use.typekit.net/af/20aa1e/00000000000000003b9aefc1/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("opentype");font-weight:400;font-style:italic;font-display:auto;}</style><script>try{Typekit.load();}catch(e){}</script><script type="text/x-mathjax-config;executed=true">
+			MathJax.Hub.Config({
+				TeX: { extensions: [ "cancel.js", "mhchem.js" ] },
+				tex2jax: {inlineMath: [ [ "[latex]", "[/latex]" ] ] }
+			});
+		</script>
+		<script type="text/javascript">
+			MathJax.Hub.Configured();
+		</script><style type="text/css">
+/* <![CDATA[ */
+img.latex { vertical-align: middle; border: none; background: none; }
+/* ]]> */
+</style>
+
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.mjx-chtml {display: inline-block; line-height: 0; text-indent: 0; text-align: left; text-transform: none; font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; letter-spacing: normal; word-wrap: normal; word-spacing: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; margin: 0; padding: 1px 0}
+.MJXc-display {display: block; text-align: center; margin: 1em 0; padding: 0}
+.mjx-chtml[tabindex]:focus, body :focus .mjx-chtml[tabindex] {display: inline-table}
+.mjx-full-width {text-align: center; display: table-cell!important; width: 10000em}
+.mjx-math {display: inline-block; border-collapse: separate; border-spacing: 0}
+.mjx-math * {display: inline-block; -webkit-box-sizing: content-box!important; -moz-box-sizing: content-box!important; box-sizing: content-box!important; text-align: left}
+.mjx-numerator {display: block; text-align: center}
+.mjx-denominator {display: block; text-align: center}
+.MJXc-stacked {height: 0; position: relative}
+.MJXc-stacked > * {position: absolute}
+.MJXc-bevelled > * {display: inline-block}
+.mjx-stack {display: inline-block}
+.mjx-op {display: block}
+.mjx-under {display: table-cell}
+.mjx-over {display: block}
+.mjx-over > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-under > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-stack > .mjx-sup {display: block}
+.mjx-stack > .mjx-sub {display: block}
+.mjx-prestack > .mjx-presup {display: block}
+.mjx-prestack > .mjx-presub {display: block}
+.mjx-delim-h > .mjx-char {display: inline-block}
+.mjx-surd {vertical-align: top}
+.mjx-mphantom * {visibility: hidden}
+.mjx-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 2px 3px; font-style: normal; font-size: 90%}
+.mjx-annotation-xml {line-height: normal}
+.mjx-menclose > svg {fill: none; stroke: currentColor}
+.mjx-mtr {display: table-row}
+.mjx-mlabeledtr {display: table-row}
+.mjx-mtd {display: table-cell; text-align: center}
+.mjx-label {display: table-row}
+.mjx-box {display: inline-block}
+.mjx-block {display: block}
+.mjx-span {display: inline}
+.mjx-char {display: block; white-space: pre}
+.mjx-itable {display: inline-table; width: auto}
+.mjx-row {display: table-row}
+.mjx-cell {display: table-cell}
+.mjx-table {display: table; width: 100%}
+.mjx-line {display: block; height: 0}
+.mjx-strut {width: 0; padding-top: 1em}
+.mjx-vsize {width: 0}
+.MJXc-space1 {margin-left: .167em}
+.MJXc-space2 {margin-left: .222em}
+.MJXc-space3 {margin-left: .278em}
+.mjx-chartest {display: block; visibility: hidden; position: absolute; top: 0; line-height: normal; font-size: 500%}
+.mjx-chartest .mjx-char {display: inline}
+.mjx-chartest .mjx-box {padding-top: 1000px}
+.MJXc-processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MJXc-processed {display: none}
+.mjx-test {display: block; font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.mjx-ex-box-test {position: absolute; overflow: hidden; width: 1px; height: 60ex}
+.mjx-line-box-test {display: table!important}
+.mjx-line-box-test span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+#MathJax_CHTML_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.mjx-chtml .mjx-noError {line-height: 1.2; vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+.MJXc-TeX-unknown-R {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: normal}
+.MJXc-TeX-unknown-I {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: normal}
+.MJXc-TeX-unknown-B {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: bold}
+.MJXc-TeX-unknown-BI {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: bold}
+.MJXc-TeX-ams-R {font-family: MJXc-TeX-ams-R,MJXc-TeX-ams-Rw}
+.MJXc-TeX-cal-B {font-family: MJXc-TeX-cal-B,MJXc-TeX-cal-Bx,MJXc-TeX-cal-Bw}
+.MJXc-TeX-frak-R {font-family: MJXc-TeX-frak-R,MJXc-TeX-frak-Rw}
+.MJXc-TeX-frak-B {font-family: MJXc-TeX-frak-B,MJXc-TeX-frak-Bx,MJXc-TeX-frak-Bw}
+.MJXc-TeX-math-BI {font-family: MJXc-TeX-math-BI,MJXc-TeX-math-BIx,MJXc-TeX-math-BIw}
+.MJXc-TeX-sans-R {font-family: MJXc-TeX-sans-R,MJXc-TeX-sans-Rw}
+.MJXc-TeX-sans-B {font-family: MJXc-TeX-sans-B,MJXc-TeX-sans-Bx,MJXc-TeX-sans-Bw}
+.MJXc-TeX-sans-I {font-family: MJXc-TeX-sans-I,MJXc-TeX-sans-Ix,MJXc-TeX-sans-Iw}
+.MJXc-TeX-script-R {font-family: MJXc-TeX-script-R,MJXc-TeX-script-Rw}
+.MJXc-TeX-type-R {font-family: MJXc-TeX-type-R,MJXc-TeX-type-Rw}
+.MJXc-TeX-cal-R {font-family: MJXc-TeX-cal-R,MJXc-TeX-cal-Rw}
+.MJXc-TeX-main-B {font-family: MJXc-TeX-main-B,MJXc-TeX-main-Bx,MJXc-TeX-main-Bw}
+.MJXc-TeX-main-I {font-family: MJXc-TeX-main-I,MJXc-TeX-main-Ix,MJXc-TeX-main-Iw}
+.MJXc-TeX-main-R {font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw}
+.MJXc-TeX-math-I {font-family: MJXc-TeX-math-I,MJXc-TeX-math-Ix,MJXc-TeX-math-Iw}
+.MJXc-TeX-size1-R {font-family: MJXc-TeX-size1-R,MJXc-TeX-size1-Rw}
+.MJXc-TeX-size2-R {font-family: MJXc-TeX-size2-R,MJXc-TeX-size2-Rw}
+.MJXc-TeX-size3-R {font-family: MJXc-TeX-size3-R,MJXc-TeX-size3-Rw}
+.MJXc-TeX-size4-R {font-family: MJXc-TeX-size4-R,MJXc-TeX-size4-Rw}
+.MJXc-TeX-vec-R {font-family: MJXc-TeX-vec-R,MJXc-TeX-vec-Rw}
+.MJXc-TeX-vec-B {font-family: MJXc-TeX-vec-B,MJXc-TeX-vec-Bx,MJXc-TeX-vec-Bw}
+@font-face {font-family: MJXc-TeX-ams-R; src: local('MathJax_AMS'), local('MathJax_AMS-Regular')}
+@font-face {font-family: MJXc-TeX-ams-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_AMS-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_AMS-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_AMS-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-B; src: local('MathJax_Caligraphic Bold'), local('MathJax_Caligraphic-Bold')}
+@font-face {font-family: MJXc-TeX-cal-Bx; src: local('MathJax_Caligraphic'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-cal-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-R; src: local('MathJax_Fraktur'), local('MathJax_Fraktur-Regular')}
+@font-face {font-family: MJXc-TeX-frak-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-B; src: local('MathJax_Fraktur Bold'), local('MathJax_Fraktur-Bold')}
+@font-face {font-family: MJXc-TeX-frak-Bx; src: local('MathJax_Fraktur'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-frak-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-BI; src: local('MathJax_Math BoldItalic'), local('MathJax_Math-BoldItalic')}
+@font-face {font-family: MJXc-TeX-math-BIx; src: local('MathJax_Math'); font-weight: bold; font-style: italic}
+@font-face {font-family: MJXc-TeX-math-BIw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Math-BoldItalic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Math-BoldItalic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Math-BoldItalic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-R; src: local('MathJax_SansSerif'), local('MathJax_SansSerif-Regular')}
+@font-face {font-family: MJXc-TeX-sans-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-B; src: local('MathJax_SansSerif Bold'), local('MathJax_SansSerif-Bold')}
+@font-face {font-family: MJXc-TeX-sans-Bx; src: local('MathJax_SansSerif'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-sans-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-I; src: local('MathJax_SansSerif Italic'), local('MathJax_SansSerif-Italic')}
+@font-face {font-family: MJXc-TeX-sans-Ix; src: local('MathJax_SansSerif'); font-style: italic}
+@font-face {font-family: MJXc-TeX-sans-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-script-R; src: local('MathJax_Script'), local('MathJax_Script-Regular')}
+@font-face {font-family: MJXc-TeX-script-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Script-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Script-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Script-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-type-R; src: local('MathJax_Typewriter'), local('MathJax_Typewriter-Regular')}
+@font-face {font-family: MJXc-TeX-type-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Typewriter-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Typewriter-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Typewriter-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-R; src: local('MathJax_Caligraphic'), local('MathJax_Caligraphic-Regular')}
+@font-face {font-family: MJXc-TeX-cal-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-B; src: local('MathJax_Main Bold'), local('MathJax_Main-Bold')}
+@font-face {font-family: MJXc-TeX-main-Bx; src: local('MathJax_Main'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-main-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Main-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-I; src: local('MathJax_Main Italic'), local('MathJax_Main-Italic')}
+@font-face {font-family: MJXc-TeX-main-Ix; src: local('MathJax_Main'); font-style: italic}
+@font-face {font-family: MJXc-TeX-main-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Main-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-R; src: local('MathJax_Main'), local('MathJax_Main-Regular')}
+@font-face {font-family: MJXc-TeX-main-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-I; src: local('MathJax_Math Italic'), local('MathJax_Math-Italic')}
+@font-face {font-family: MJXc-TeX-math-Ix; src: local('MathJax_Math'); font-style: italic}
+@font-face {font-family: MJXc-TeX-math-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Math-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size1-R; src: local('MathJax_Size1'), local('MathJax_Size1-Regular')}
+@font-face {font-family: MJXc-TeX-size1-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Size1-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size2-R; src: local('MathJax_Size2'), local('MathJax_Size2-Regular')}
+@font-face {font-family: MJXc-TeX-size2-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Size2-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size3-R; src: local('MathJax_Size3'), local('MathJax_Size3-Regular')}
+@font-face {font-family: MJXc-TeX-size3-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Size3-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size4-R; src: local('MathJax_Size4'), local('MathJax_Size4-Regular')}
+@font-face {font-family: MJXc-TeX-size4-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Size4-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-vec-R; src: local('MathJax_Vector'), local('MathJax_Vector-Regular')}
+@font-face {font-family: MJXc-TeX-vec-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Vector-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Vector-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Vector-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-vec-B; src: local('MathJax_Vector Bold'), local('MathJax_Vector-Bold')}
+@font-face {font-family: MJXc-TeX-vec-Bx; src: local('MathJax_Vector'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-vec-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/eot/MathJax_Vector-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/woff/MathJax_Vector-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/fonts/HTML-CSS/TeX/otf/MathJax_Vector-Bold.otf') format('opentype')}
+</style></head>
+<body class="singular chapter-template-default single single-chapter postid-1219" id="eulerandhamiltonianpathsandcircuits" itemscope="" itemtype="http://schema.org/WebPage" itemref="about copyrightHolder copyrightYear inLanguage publisher"><div id="MathJax_Message" style="display: none;"></div>
+
+		
+		<!-- table of contents -->
+		
+			<div class="nav-container">
+
+				<!-- skip to content -->
+				<div class="skip-to-content">
+					<a href="#content">Skip to main content</a>
+				</div>
+
+									<!-- nav bar -->
+					<nav role="navigation" style="background-color: 0">
+						<!-- logo / branding -->
+						<div class="book-title-wrapper">
+							<div class="bombadil-logo"><a href="https://courses.lumenlearning.com/"><img src="graphs_files/LumenOnDark-150x69.png" alt="Lumen"></a></div>
+						<!-- Book Title -->
+							<h1 class="book-title">
+																	<a href="https://courses.lumenlearning.com/math4liberalarts/" title="Lumen Learning Mathematics for the Liberal Arts" rel="home">Lumen Learning Mathematics for the Liberal Arts</a>
+															</h1>
+						</div>
+					</nav>
+
+											<div class="sub-nav">
+							<div class="sub-nav-wrapper">
+								<!-- page title -->
+																	<div class="author-wrap">
+										<h3>Module 4: Graph Theory</h3>
+									</div> <!-- end .author-name -->
+								
+								<!-- search bar -->
+								<form role="search" method="get" id="searchform" class="searchform" action="https://courses.lumenlearning.com/math4liberalarts/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" name="s" id="s">
+					<input type="submit" id="searchsubmit" value="Search">
+				</div>
+			</form>							</div>
+						</div><!-- end sub-nav -->
+					
+							</div> <!-- end .nav-container -->
+
+	<div class="wrapper"><!-- for sitting footer at the bottom of the page -->
+			<div id="wrap">
+				<div id="content" role="main">
+
+		
+				<h2 class="entry-title">Euler and Hamiltonian Paths and Circuits</h2>
+
+				<div id="post-1219" class="standard post-1219 chapter type-chapter status-publish hentry">
+
+					<div class="entry-content">
+											
+					<p>In the next lesson, we will investigate specific kinds of paths 
+through a graph called Euler paths and circuits. Euler paths are an 
+optimal path through a graph. They are named after him because it was 
+Euler who first defined them.</p>
+<p>By counting the number of vertices of a graph, and their degree we 
+can determine whether a graph has an Euler path or circuit. We will also
+ learn another algorithm that will allow us to find an Euler circuit 
+once we determine that a graph has one.</p>
+<div class="textbox learning-objectives">
+<h3>Learning Objectives</h3>
+<ul>
+<li>Determine whether a graph has an Euler path and/ or circuit</li>
+<li>Use Fleury’s algorithm to find an Euler circuit</li>
+<li>Add edges to a graph to create an Euler circuit if one doesn’t exist</li>
+<li>Identify whether a graph has a Hamiltonian circuit or path</li>
+<li>Find the optimal Hamiltonian circuit for a graph using the brute 
+force algorithm, the nearest neighbor algorithm, and the sorted edges 
+algorithm</li>
+<li>Identify a connected graph that is a spanning tree</li>
+<li>Use Kruskal’s algorithm to form a spanning tree, and a minimum cost spanning tree</li>
+</ul>
+</div>
+<p>&nbsp;</p>
+<h2>Euler Circuits</h2>
+<p>In the first section, we created a graph of the Königsberg bridges 
+and asked whether it was possible to walk across every bridge once. 
+Because Euler first studied this question, these types of paths are 
+named after him.</p>
+<div class="textbox">
+<h3>Euler Path</h3>
+<p>An <strong>Euler path</strong> is a path that uses every edge in a graph with no repeats. Being a path, it does not have to return to the starting vertex.</p>
+</div>
+<div class="textbox exercises">
+<h3>Example</h3>
+<p>In the graph shown below, there are several Euler paths. One such 
+path is CABDCB. The path is shown in arrows to the right, with the order
+ of edges numbered.</p>
+<div class="wp-nocaption aligncenter wp-image-149 size-full"><img class="aligncenter wp-image-149 size-full" src="graphs_files/Fig2_5_16.png" alt="Fig2_5_16" width="530" height="211"></div>
+</div>
+<div class="textbox">
+<h3>Euler Circuit</h3>
+<p>An <strong>Euler circuit</strong> is a circuit that uses every edge in a graph with no repeats. Being a circuit, it must start and end at the same vertex.</p>
+</div>
+<div class="textbox exercises">
+<h3>Example</h3>
+<p>The graph below has several possible Euler circuits. Here’s a couple,
+ starting and ending at vertex A: ADEACEFCBA and AECABCFEDA. The second 
+is shown in arrows.</p>
+<div class="wp-nocaption aligncenter wp-image-150"><img class="aligncenter wp-image-150" src="graphs_files/Fig2_5_17.png" alt="Fig2_5_17" width="550" height="188"></div>
+</div>
+<p>Look back at the example used for Euler paths—does that graph have an
+ Euler circuit? A few tries will tell you no; that graph does not have 
+an Euler circuit. When we were working with shortest paths, we were 
+interested in the optimal path. With Euler paths and circuits, we’re 
+primarily interested in whether an Euler path or circuit <em>exists</em>.</p>
+<p>Why do we care if an Euler circuit exists? Think back to our housing 
+development lawn inspector from the beginning of the chapter. The lawn 
+inspector is interested in walking as little as possible. The ideal 
+situation would be a circuit that covers every street with no repeats. 
+That’s an Euler circuit! Luckily, Euler solved the question of whether 
+or not an Euler path or circuit will exist.</p>
+<div class="textbox">
+<h3>Euler’s Path and Circuit Theorems</h3>
+<p>A graph will contain an Euler path if it contains at most two vertices of odd degree.</p>
+<p>A graph will contain an Euler circuit if all vertices have even degree</p>
+</div>
+<div class="textbox exercises">
+<h3>Example</h3>
+<p>In the graph below, vertices A and C have degree 4, since there are 4
+ edges leading into each vertex. B is degree 2, D is degree 3, and E is 
+degree 1. This graph contains two vertices with odd degree (D and E) and
+ three vertices with even degree (A, B, and C), so Euler’s theorems tell
+ us this graph has an Euler path, but not an Euler circuit.</p>
+<div class="wp-nocaption alignnone wp-image-151"><img class="alignnone wp-image-151" src="graphs_files/Fig2_5_18.png" alt="Fig2_5_18" width="235" height="180"></div>
+</div>
+<div class="textbox exercises">
+<h3>Example</h3>
+<p>Is there an Euler circuit on the housing development lawn inspector 
+graph we created earlier in the chapter? All the highlighted vertices 
+have odd degree. Since there are more than two vertices with odd degree,
+ there are no Euler paths or Euler circuits on this graph. Unfortunately
+ our lawn inspector will need to do some backtracking.</p>
+<div class="wp-nocaption size-full wp-image-152 aligncenter"><img class="size-full wp-image-152 aligncenter" src="graphs_files/Fig2_5_19.png" alt="Fig2_5_19" width="657" height="265"></div>
+</div>
+<div class="textbox exercises">
+<h3>Example</h3>
+<p>When it snows in the same housing development, the snowplow has to 
+plow both sides of every street. For simplicity, we’ll assume the plow 
+is out early enough that it can ignore traffic laws and drive down 
+either side of the street in either direction. This can be visualized in
+ the graph by drawing two edges for each street, representing the two 
+sides of the street.</p>
+<div class="wp-nocaption alignnone wp-image-153"><img class="alignnone wp-image-153" src="graphs_files/Fig2_5_20.png" alt="Fig2_5_20" width="250" height="214"></div>
+</div>
+<p>Notice that every vertex in this graph has even degree, so this graph does have an Euler circuit.</p>
+<p>The following video gives more examples of how to determine an Euler path, and an Euler Circuit for a graph.</p>
+<p><iframe src="graphs_files/5M-m62qTR-s.html" allowfullscreen="" width="500" height="281" frameborder="0"></iframe></p>
+<h3>Fleury’s Algorithm</h3>
+<div data-canvas-width="605.0964705882352">Now we know how to determine 
+if a graph has an Euler circuit, but if it does, how do we find one? 
+While it usually is possible to find an Euler circuit just by pulling 
+out your pencil and trying to find one, the more formal method is 
+Fleury’s algorithm.</div>
+<div data-canvas-width="590.804117647059">
+<div class="textbox">
+<h3 data-canvas-width="590.804117647059">Fleury’s Algorithm</h3>
+<div data-canvas-width="12.044117647058822">1. Start at any vertex if finding an Euler circuit. If finding an Euler path, start at one of the two vertices with odd degree.</div>
+<div data-canvas-width="12.044117647058822">2. Choose any edge leaving 
+your current vertex, provided deleting that edge will not separate the 
+graph into two disconnected sets of edges.</div>
+<div data-canvas-width="12.044117647058822">3. Add that edge to your circuit, and delete it from the graph.</div>
+<div data-canvas-width="12.044117647058822">4. Continue until you’re done.</div>
+</div>
+</div>
+<div data-canvas-width="181.46470588235292">
+<div class="textbox exercises">
+<h3>Example</h3>
+<p>Find an Euler Circuit on this graph using Fleury’s algorithm, starting at vertex A.</p>
+<div class="wp-nocaption aligncenter wp-image-1827"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16190906/Screen-Shot-2017-03-16-at-12.08.40-PM.png"><img class="aligncenter wp-image-1827" src="graphs_files/Screen-Shot-2017-03-16-at-12_005.png" alt="Step 1: Original Graph.Choosing edge AD. Circuit so far: AD. Step 2: AD deleted. D is current. Can’t choose DC since that would disconnect graph. Choosing DE.Circuit so far: ADE. Step 3: E is current. From here, there is only one option, so the rest of the circuit is determined. Circuit: ADEBDCA." srcset="graphs_files/Screen-Shot-2017-03-16-at-12_005.png 300w, graphs_files/Screen-Shot-2017-03-16-at-12_004.png 65w, graphs_files/Screen-Shot-2017-03-16-at-12.png 225w, graphs_files/Screen-Shot-2017-03-16-at-12_002.png 350w, graphs_files/Screen-Shot-2017-03-16-at-12_003.png 414w" sizes="(max-width: 762px) 100vw, 762px" width="762" height="330"></a></div>
+<p>&nbsp;</p>
+</div>
+<div class="textbox key-takeaways">
+<h3>Try It Now</h3>
+<p>Does the graph below have an Euler Circuit? If so, find one.</p>
+<div class="wp-nocaption alignnone wp-image-1829"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16191250/Try-It-Now-3-Graph-Theory.png"><img class="alignnone wp-image-1829" src="graphs_files/Try-It-Now-3-Graph-Theory.png" alt="" srcset="graphs_files/Try-It-Now-3-Graph-Theory.png 231w, graphs_files/Try-It-Now-3-Graph-Theory-65x38.png 65w, graphs_files/Try-It-Now-3-Graph-Theory-225x131.png 225w" sizes="(max-width: 415px) 100vw, 415px" width="415" height="241"></a></div>
+</div>
+<p>The following video presents more examples of using Fleury’s algorithm to find an Euler Circuit.</p>
+<p><iframe src="graphs_files/vvP4Fg4r-Ns.html" allowfullscreen="" width="500" height="281" frameborder="0"></iframe></p>
+<h3>Eulerization and the Chinese Postman Problem</h3>
+<p>Not every graph has an Euler path or circuit, yet our lawn inspector 
+still needs to do her inspections. Her goal is to minimize the amount of
+ walking she has to do. In order to do that, she will have to duplicate 
+some edges in the graph until an Euler circuit exists.</p>
+<div class="textbox">
+<div>
+<h3>Eulerization</h3>
+</div>
+<div>
+<p><strong>Eulerization </strong>is the process of adding edges to a 
+graph to create an Euler circuit on a graph. To eulerize a graph, edges 
+are duplicated to connect pairs of vertices with odd degree. Connecting 
+two odd degree vertices increases the degree of each, giving them both 
+even degree. When two odd degree vertices are not directly connected, we
+ can duplicate all edges in a path connecting the two.</p>
+</div>
+</div>
+<p>Note that we can only duplicate edges, not create edges where there 
+wasn’t one before. Duplicating edges would mean walking or driving down a
+ road twice, while creating an edge where there wasn’t one before is 
+akin to installing a new road!</p>
+<div class="textbox exercises">
+<h3>Example</h3>
+<div>
+<p>For the rectangular graph shown, three possible eulerizations are 
+shown. Notice in each of these cases the vertices that started with odd 
+degrees have even degrees after eulerization, allowing for an Euler 
+circuit.</p>
+<div>
+<div class="wp-nocaption alignnone size-full wp-image-1830"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16193934/Untitled1.png"><img class="alignnone size-full wp-image-1830" src="graphs_files/Untitled1.png" alt="2 by 4 grid of rectangles. Each intersection has an open dot." srcset="graphs_files/Untitled1.png 137w, graphs_files/Untitled1-65x24.png 65w" sizes="(max-width: 137px) 100vw, 137px" width="137" height="51"></a></div>
+<div class="wp-nocaption alignnone size-full wp-image-1831"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16194045/Untitled2.png"><img class="alignnone size-full wp-image-1831" src="graphs_files/Untitled2.png" alt="" srcset="graphs_files/Untitled2.png 136w, graphs_files/Untitled2-65x29.png 65w" sizes="(max-width: 136px) 100vw, 136px" width="136" height="60"></a></div>
+<div class="wp-nocaption alignnone wp-image-1832 size-full"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16194337/Untitled3.png"><img class="alignnone wp-image-1832 size-full" src="graphs_files/Untitled3.png" alt="2 by 3 grid with dots at intersections. curved lines connecting upper dots on cell 2:1, right-hand dots on cell 1:1, upper dots on cell 1:3, right-hand dots on cell 1:3, and lower dots on cell 2:2" srcset="graphs_files/Untitled3.png 143w, graphs_files/Untitled3-65x28.png 65w" sizes="(max-width: 143px) 100vw, 143px" width="143" height="61"></a></div>
+<div class="wp-nocaption alignnone size-full wp-image-1833"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16194534/Untitled4.png"><img class="alignnone size-full wp-image-1833" src="graphs_files/Untitled4.png" alt="" srcset="graphs_files/Untitled4.png 137w, graphs_files/Untitled4-65x27.png 65w" sizes="(max-width: 137px) 100vw, 137px" width="137" height="56"></a></div>
+</div>
+</div>
+</div>
+<p>In the example above, you’ll notice that the last eulerization 
+required duplicating seven edges, while the first two only required 
+duplicating five edges. If we were eulerizing the graph to find a 
+walking path, we would want the eulerization with minimal duplications. 
+If the edges had weights representing distances or costs, then we would 
+want to select the eulerization with the minimal total added weight.</p>
+<div class="textbox key-takeaways">
+<h3>Try It now</h3>
+<p>Eulerize the graph shown, then find an Euler circuit on the eulerized graph.</p>
+<div class="wp-nocaption alignnone size-full wp-image-1834"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16194900/Untitled5.png"><img class="alignnone size-full wp-image-1834" src="graphs_files/Untitled5.png" alt="Equilateral triangle with dots at vertices labeled A, B, C. There is a smaller triangle which shares the C,D edge with the larger triangle. The smaller triangle has vertices labeled B, C, D." srcset="graphs_files/Untitled5.png 98w, graphs_files/Untitled5-65x51.png 65w" sizes="(max-width: 98px) 100vw, 98px" width="98" height="77"></a></div>
+</div>
+<p>&nbsp;</p>
+<div class="textbox exercises">
+<h3>Example</h3>
+<div>
+<p>Looking again at the graph for our lawn inspector from Examples 1 and
+ 8, the vertices with odd degree are shown highlighted. With eight 
+vertices, we will always have to duplicate at least four edges. In this 
+case, we need to duplicate five edges since two odd degree vertices are 
+not directly connected. Without weights we can’t be certain this is the 
+eulerization that minimizes walking distance, but it looks pretty good.</p>
+<div class="wp-nocaption alignnone wp-image-1835 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16195338/Untitled6.png"><img class="alignnone wp-image-1835 aligncenter" src="graphs_files/Untitled6.png" alt="Graph with 25 edges and 20 vertices." srcset="graphs_files/Untitled6.png 106w, graphs_files/Untitled6-65x56.png 65w" sizes="(max-width: 167px) 100vw, 167px" width="167" height="143"></a></div>
+<div class="wp-nocaption wp-image-1836 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16195800/Untitled7.png"><img class="wp-image-1836 aligncenter" src="graphs_files/Untitled7.png" alt="" srcset="graphs_files/Untitled7.png 106w, graphs_files/Untitled7-65x56.png 65w" sizes="(max-width: 215px) 100vw, 215px" width="215" height="185"></a></div>
+</div>
+</div>
+<p>The problem of finding the optimal eulerization is called the Chinese
+ Postman Problem, a name given by an American in honor of the Chinese 
+mathematician Mei-Ko Kwan who first studied the problem in 1962 while 
+trying to find optimal delivery routes for postal carriers. &nbsp;This 
+problem is important in determining efficient routes for garbage trucks,
+ school buses, parking meter checkers, street sweepers, and more.</p>
+<p>Unfortunately, algorithms to solve this problem are fairly complex. Some simpler cases are considered in the exercises</p>
+<p>The following video shows another view of finding an Eulerization of the lawn inspector problem.</p>
+<p><iframe src="graphs_files/lUqCtywkskU.html" allowfullscreen="" width="500" height="281" frameborder="0"></iframe></p>
+<p>&nbsp;</p>
+</div>
+<h2>Hamiltonian Circuits</h2>
+<h3>The Traveling Salesman Problem</h3>
+<p>In the last section, we considered optimizing a walking route for a 
+postal carrier. How is this different than the requirements of a package
+ delivery driver? While the postal carrier needed to walk down every 
+street (edge) to deliver the mail, the package delivery driver instead 
+needs to visit every one of a set of delivery locations. Instead of 
+looking for a circuit that covers every edge once, the package deliverer
+ is interested in a circuit that visits every vertex once.</p>
+<div class="textbox">
+<div>
+<h3>Hamiltonian Circuits and Paths</h3>
+</div>
+<div>
+<p>A <strong>Hamiltonian circuit</strong> is a circuit that visits every vertex once with no repeats. Being a circuit, it must start and end at the same vertex. A <strong>Hamiltonian path</strong> also visits every vertex once with no repeats, but does not have to start and end at the same vertex.</p>
+</div>
+</div>
+<p>Hamiltonian circuits are named for William Rowan Hamilton who studied them in the 1800’s.</p>
+<div class="textbox exercises">
+<h3>Example</h3>
+<div>
+<p>One Hamiltonian circuit is shown on the graph below. There are 
+several other Hamiltonian circuits possible on this graph. Notice that 
+the circuit only has to visit every vertex once; it does not need to use
+ every edge.</p>
+<p>This circuit could be notated by the sequence of vertices visited, 
+starting and ending at the same vertex: ABFGCDHMLKJEA. Notice that the 
+same circuit could be written in reverse order, or starting and ending 
+at a different vertex.</p>
+<div class="wp-nocaption  wp-image-1862 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16225006/Screen-Shot-2017-03-16-at-3.48.22-PM.png"><img class=" wp-image-1862 aligncenter" src="graphs_files/Screen-Shot-2017-03-16-at-3.png" alt="Rectangular graph with 12 vertices labeled a through M (without I) " srcset="graphs_files/Screen-Shot-2017-03-16-at-3.png 170w, graphs_files/Screen-Shot-2017-03-16-at-3_002.png 65w" sizes="(max-width: 359px) 100vw, 359px" width="359" height="186"></a></div>
+</div>
+</div>
+<p>Unlike with Euler circuits, there is no nice theorem that allows us 
+to instantly determine whether or not a Hamiltonian circuit exists for 
+all graphs.<a href="#_ftn1">[1]</a></p>
+<div class="textbox exercises">
+<h3>Example</h3>
+<p>Does a Hamiltonian path or circuit exist on the graph below?</p>
+<div class="wp-nocaption  wp-image-1863 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16225240/Untitled17.png"><img class=" wp-image-1863 aligncenter" src="graphs_files/Untitled17.png" alt="Arrow shaped graph with 5 vertices labeled A- E, Edge from C to E is not part of the arrow shape. A and C are connected by two edges." srcset="graphs_files/Untitled17.png 99w, graphs_files/Untitled17-65x53.png 65w" sizes="(max-width: 231px) 100vw, 231px" width="231" height="189"></a></div>
+<p>We can see that once we travel to vertex E there is no way to leave 
+without returning to C, so there is no possibility of a Hamiltonian 
+circuit. If we start at vertex E we can find several Hamiltonian paths, 
+such as ECDAB and ECABD</p>
+</div>
+<div class="textbox key-takeaways">
+<h3>try it now</h3>
+<p><iframe id="mom50" class="resizable" src="graphs_files/multiembedq.html" style="height: 381px;" width="100%" height="200"></iframe></p>
+</div>
+<p>&nbsp;</p>
+<p>With Hamiltonian circuits, our focus will not be on existence, but on
+ the question of optimization; given a graph where the edges have 
+weights, can we find the optimal Hamiltonian circuit; the one with 
+lowest total weight.</p>
+<p>Watch this video to see the examples above worked out.</p>
+<p><iframe src="graphs_files/SjtVuw4-1Qo.html" allowfullscreen="" width="500" height="281" frameborder="0"></iframe></p>
+<p>This problem is called the <strong>Traveling salesman problem</strong>
+ (TSP) because the question can be framed like this: Suppose a salesman 
+needs to give sales pitches in four cities. He looks up the airfares 
+between each city, and puts the costs in a graph. In what order should 
+he travel to visit each city once then return home with the lowest cost?</p>
+<p>To answer this question of how to find the lowest cost Hamiltonian 
+circuit, we will consider some possible approaches. The first option 
+that might come to mind is to just try all different possible circuits.</p>
+<div class="wp-nocaption  wp-image-1864 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16225500/Untitled18.png"><img class=" wp-image-1864 aligncenter" src="graphs_files/Untitled18.png" alt="Star Shaped graph with 5 vertices named home (Seattle), Dallas, Atlanta, Chicago, LA and the following dollar amounts between the cities: home and dallas - $12, home and atlanta - $14, home and LA $70, LA and chicago - $100, chicago and atlanta - $75, atlanta and dallas - $85, dallas and chicago - $16, LA and atlanta - $170, chicago and dallas - $16" srcset="graphs_files/Untitled18.png 216w, graphs_files/Untitled18-65x33.png 65w" sizes="(max-width: 487px) 100vw, 487px" width="487" height="248"></a></div>
+<p>question can be framed like this: Suppose a salesman needs to give 
+sales pitches in four cities. He looks up the airfares between each 
+city, and puts the costs in a graph. In what order should he travel to 
+visit each city once then return home with the lowest cost?</p>
+<p>To answer this question of how to find the lowest cost Hamiltonian 
+circuit, we will consider some possible approaches. The first option 
+that might come to mind is to just try all different possible circuits.</p>
+<div class="textbox">
+<div>
+<h3>Brute Force Algorithm (a.k.a. exhaustive search)</h3>
+</div>
+<div>
+<p>1.&nbsp;&nbsp;&nbsp;&nbsp; List all possible Hamiltonian circuits</p>
+<p>2.&nbsp;&nbsp;&nbsp;&nbsp; Find the length of each circuit by adding the edge weights</p>
+<p>3.&nbsp;&nbsp;&nbsp;&nbsp; Select the circuit with minimal total weight.</p>
+</div>
+</div>
+<p>&nbsp;</p>
+<div class="textbox exercises">
+<h3>Example</h3>
+<p>Apply the Brute force algorithm to find the minimum cost Hamiltonian circuit on the graph below.</p>
+<div class="wp-nocaption alignnone size-full wp-image-1865"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16230234/Untitled19.png"><img class="alignnone size-full wp-image-1865" src="graphs_files/Untitled19.png" alt="triangular graph with 4 vertices and 6 edges. There is one vertex in the center of the triangle. " srcset="graphs_files/Untitled19.png 85w, graphs_files/Untitled19-65x60.png 65w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="78"></a></div>
+<div>
+<p>To apply the Brute force algorithm, we list all possible Hamiltonian circuits and calculate their weight:</p>
+<table>
+<tbody>
+<tr>
+<td><strong>Circuit</strong></td>
+<td><strong>Weight</strong></td>
+</tr>
+<tr>
+<td>ABCDA</td>
+<td>4+13+8+1 = 26</td>
+</tr>
+<tr>
+<td>ABDCA</td>
+<td>4+9+8+2 = 23</td>
+</tr>
+<tr>
+<td>ACBDA</td>
+<td>2+13+9+1 = 25</td>
+</tr>
+</tbody>
+</table>
+<div>
+<p>Note: These are the unique circuits on this graph. All other possible
+ circuits are the reverse of the listed ones or start at a different 
+vertex, but result in the same weights.</p>
+<p>&nbsp;</p>
+<p>From this we can see that the second circuit, ABDCA, is the optimal circuit.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+<p>Watch these examples worked again in the following video.</p>
+<p><iframe src="graphs_files/wDXQ6tWsJxw.html" allowfullscreen="" width="500" height="281" frameborder="0"></iframe></p>
+<div class="textbox key-takeaways">
+<h3>Try It Now</h3>
+<p><iframe id="mom2" class="resizable" src="graphs_files/multiembedq_002.html" style="height: 1270px;" width="100%" height="500"></iframe></p>
+</div>
+<p>&nbsp;</p>
+<p>The Brute force algorithm is optimal; it will always produce the 
+Hamiltonian circuit with minimum weight. Is it efficient? To answer that
+ question, we need to consider how many Hamiltonian circuits a graph 
+could have. For simplicity, let’s look at the worst-case possibility, 
+where every vertex is connected to every other vertex. This is called a <strong>complete graph.</strong></p>
+<p>Suppose we had a complete graph with five vertices like the air 
+travel graph above. From Seattle there are four cities we can visit 
+first. From each of those, there are three choices. From each of those 
+cities, there are two possible cities to visit next. There is then only 
+one choice for the last city before returning home.</p>
+<p>This can be shown visually:</p>
+<p>&nbsp;</p>
+<div class="wp-nocaption  wp-image-1866 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16230435/Untitled20.png"><img class=" wp-image-1866 aligncenter" src="graphs_files/Untitled20-300x83.png" alt="" srcset="graphs_files/Untitled20-300x83.png 300w, graphs_files/Untitled20-65x18.png 65w, graphs_files/Untitled20-225x62.png 225w, graphs_files/Untitled20-350x97.png 350w, graphs_files/Untitled20.png 441w" sizes="(max-width: 570px) 100vw, 570px" width="570" height="158"></a></div>
+<p>&nbsp;</p>
+<div>
+<p>Counting the number of routes, we can see thereare <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-1-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 113%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;mo&gt;&amp;#x22C5;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/mrow&gt;&lt;mo&gt;&amp;#x22C5;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mrow&gt;&lt;mo&gt;&amp;#x22C5;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-1" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2" class="mjx-mrow"><span id="MJXc-Node-3" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.335em;">4</span></span><span id="MJXc-Node-4" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.003em; padding-bottom: 0.335em;">⋅</span></span><span id="MJXc-Node-5" class="mjx-texatom MJXc-space2"><span id="MJXc-Node-6" class="mjx-mrow"><span id="MJXc-Node-7" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.39em;">3</span></span></span></span><span id="MJXc-Node-8" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.003em; padding-bottom: 0.335em;">⋅</span></span><span id="MJXc-Node-9" class="mjx-texatom MJXc-space2"><span id="MJXc-Node-10" class="mjx-mrow"><span id="MJXc-Node-11" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.335em;">2</span></span></span></span><span id="MJXc-Node-12" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.003em; padding-bottom: 0.335em;">⋅</span></span><span id="MJXc-Node-13" class="mjx-texatom MJXc-space2"><span id="MJXc-Node-14" class="mjx-mrow"><span id="MJXc-Node-15" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.335em;">1</span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>4</mn><mo>⋅</mo><mrow class="MJX-TeXAtom-ORD"><mn>3</mn></mrow><mo>⋅</mo><mrow class="MJX-TeXAtom-ORD"><mn>2</mn></mrow><mo>⋅</mo><mrow class="MJX-TeXAtom-ORD"><mn>1</mn></mrow></math></span></span><script type="math/tex" id="MathJax-Element-1">4\cdot{3}\cdot{2}\cdot{1}</script> routes. For six cities there would be <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-2-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 113%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;mo&gt;&amp;#x22C5;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;/mrow&gt;&lt;mo&gt;&amp;#x22C5;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/mrow&gt;&lt;mo&gt;&amp;#x22C5;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mrow&gt;&lt;mo&gt;&amp;#x22C5;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-16" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-17" class="mjx-mrow"><span id="MJXc-Node-18" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.39em;">5</span></span><span id="MJXc-Node-19" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.003em; padding-bottom: 0.335em;">⋅</span></span><span id="MJXc-Node-20" class="mjx-texatom MJXc-space2"><span id="MJXc-Node-21" class="mjx-mrow"><span id="MJXc-Node-22" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.335em;">4</span></span></span></span><span id="MJXc-Node-23" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.003em; padding-bottom: 0.335em;">⋅</span></span><span id="MJXc-Node-24" class="mjx-texatom MJXc-space2"><span id="MJXc-Node-25" class="mjx-mrow"><span id="MJXc-Node-26" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.39em;">3</span></span></span></span><span id="MJXc-Node-27" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.003em; padding-bottom: 0.335em;">⋅</span></span><span id="MJXc-Node-28" class="mjx-texatom MJXc-space2"><span id="MJXc-Node-29" class="mjx-mrow"><span id="MJXc-Node-30" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.335em;">2</span></span></span></span><span id="MJXc-Node-31" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.003em; padding-bottom: 0.335em;">⋅</span></span><span id="MJXc-Node-32" class="mjx-texatom MJXc-space2"><span id="MJXc-Node-33" class="mjx-mrow"><span id="MJXc-Node-34" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.335em;">1</span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>5</mn><mo>⋅</mo><mrow class="MJX-TeXAtom-ORD"><mn>4</mn></mrow><mo>⋅</mo><mrow class="MJX-TeXAtom-ORD"><mn>3</mn></mrow><mo>⋅</mo><mrow class="MJX-TeXAtom-ORD"><mn>2</mn></mrow><mo>⋅</mo><mrow class="MJX-TeXAtom-ORD"><mn>1</mn></mrow></math></span></span><script type="math/tex" id="MathJax-Element-2">5\cdot{4}\cdot{3}\cdot{2}\cdot{1}</script> routes.</p>
+<div class="textbox">
+<div>
+<h3>Number of Possible Circuits</h3>
+</div>
+<div>
+<p>For <em>N</em> vertices in a complete graph, there will be <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-3-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 113%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;!&lt;/mo&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;&amp;#x2026;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/mrow&gt;&lt;mo&gt;&amp;#x22C5;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mrow&gt;&lt;mo&gt;&amp;#x22C5;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-35" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-36" class="mjx-mrow"><span id="MJXc-Node-37" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">(</span></span><span id="MJXc-Node-38" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.279em;">n</span></span><span id="MJXc-Node-39" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.279em; padding-bottom: 0.445em;">−</span></span><span id="MJXc-Node-40" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.335em;">1</span></span><span id="MJXc-Node-41" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">)</span></span><span id="MJXc-Node-42" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.335em;">!</span></span><span id="MJXc-Node-43" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.058em; padding-bottom: 0.335em;">=</span></span><span id="MJXc-Node-44" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">(</span></span><span id="MJXc-Node-45" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.279em;">n</span></span><span id="MJXc-Node-46" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.279em; padding-bottom: 0.445em;">−</span></span><span id="MJXc-Node-47" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.335em;">1</span></span><span id="MJXc-Node-48" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">)</span></span><span id="MJXc-Node-49" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">(</span></span><span id="MJXc-Node-50" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.279em;">n</span></span><span id="MJXc-Node-51" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.279em; padding-bottom: 0.445em;">−</span></span><span id="MJXc-Node-52" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.335em;">2</span></span><span id="MJXc-Node-53" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">)</span></span><span id="MJXc-Node-54" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">(</span></span><span id="MJXc-Node-55" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.279em;">n</span></span><span id="MJXc-Node-56" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.279em; padding-bottom: 0.445em;">−</span></span><span id="MJXc-Node-57" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.39em;">3</span></span><span id="MJXc-Node-58" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">)</span></span><span id="MJXc-Node-59" class="mjx-mo MJXc-space1"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.163em; padding-bottom: 0.335em;">…</span></span><span id="MJXc-Node-60" class="mjx-texatom MJXc-space1"><span id="MJXc-Node-61" class="mjx-mrow"><span id="MJXc-Node-62" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.39em;">3</span></span></span></span><span id="MJXc-Node-63" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.003em; padding-bottom: 0.335em;">⋅</span></span><span id="MJXc-Node-64" class="mjx-texatom MJXc-space2"><span id="MJXc-Node-65" class="mjx-mrow"><span id="MJXc-Node-66" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.335em;">2</span></span></span></span><span id="MJXc-Node-67" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.003em; padding-bottom: 0.335em;">⋅</span></span><span id="MJXc-Node-68" class="mjx-texatom MJXc-space2"><span id="MJXc-Node-69" class="mjx-mrow"><span id="MJXc-Node-70" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.335em;">1</span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>!</mo><mo>=</mo><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>2</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>3</mn><mo stretchy="false">)</mo><mo>…</mo><mrow class="MJX-TeXAtom-ORD"><mn>3</mn></mrow><mo>⋅</mo><mrow class="MJX-TeXAtom-ORD"><mn>2</mn></mrow><mo>⋅</mo><mrow class="MJX-TeXAtom-ORD"><mn>1</mn></mrow></math></span></span><script type="math/tex" id="MathJax-Element-3">(n-1)!=(n-1)(n-2)(n-3)\dots{3}\cdot{2}\cdot{1}</script> routes. Half of these are duplicates in reverse order, so there are <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-4-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 113%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mfrac&gt;&lt;mrow&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;!&lt;/mo&gt;&lt;/mrow&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mfrac&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-71" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-72" class="mjx-mrow"><span id="MJXc-Node-73" class="mjx-mfrac"><span class="mjx-box MJXc-stacked" style="width: 2.216em; padding: 0px 0.12em;"><span class="mjx-numerator" style="font-size: 70.7%; width: 3.134em; top: -1.642em;"><span id="MJXc-Node-74" class="mjx-mrow" style=""><span id="MJXc-Node-75" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">(</span></span><span id="MJXc-Node-76" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.224em; padding-bottom: 0.279em;">n</span></span><span id="MJXc-Node-77" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.279em; padding-bottom: 0.445em;">−</span></span><span id="MJXc-Node-78" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.335em;">1</span></span><span id="MJXc-Node-79" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.611em;">)</span></span><span id="MJXc-Node-80" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.445em; padding-bottom: 0.335em;">!</span></span></span></span><span class="mjx-denominator" style="font-size: 70.7%; width: 3.134em; bottom: -0.6em;"><span id="MJXc-Node-81" class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.335em;">2</span></span></span><span style="border-bottom: 1.3px solid; top: -0.285em; width: 2.216em;" class="mjx-line"></span></span><span style="height: 1.585em; vertical-align: -0.425em;" class="mjx-vsize"></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>!</mo></mrow><mn>2</mn></mfrac></math></span></span><script type="math/tex" id="MathJax-Element-4">\frac{(n-1)!}{2}</script> unique circuits.</p>
+<p>The exclamation symbol, !, is read “factorial” and is shorthand for the product shown.</p>
+</div>
+</div>
+<div class="textbox exercises">
+<h3>Example</h3>
+<div>
+<p>How many circuits would a complete graph with 8 vertices have?</p>
+<p>A complete graph with 8 vertices would have = 5040 possible 
+Hamiltonian circuits. Half of the circuits are duplicates of other 
+circuits but in reverse order, leaving 2520 unique routes.</p>
+<p>While this is a lot, it doesn’t seem unreasonably huge. But consider what happens as the number of cities increase:</p>
+<table>
+<tbody>
+<tr>
+<td><strong>Cities</strong></td>
+<td><strong>Unique Hamiltonian Circuits</strong></td>
+</tr>
+<tr>
+<td>9</td>
+<td>8!/2 = 20,160</td>
+</tr>
+<tr>
+<td>10</td>
+<td>9!/2 = 181,440</td>
+</tr>
+<tr>
+<td>11</td>
+<td>10!/2 = 1,814,400</td>
+</tr>
+<tr>
+<td>15</td>
+<td>14!/2 = 43,589,145,600</td>
+</tr>
+<tr>
+<td>20</td>
+<td>19!/2 = 60,822,550,204,416,000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Watch these examples worked again in the following video.</p>
+<p><iframe src="graphs_files/DwZw4t0qxuQ.html" allowfullscreen="" width="500" height="281" frameborder="0"></iframe></p>
+<p>&nbsp;</p>
+<p>As you can see the number of circuits is growing extremely quickly. 
+If a computer looked at one billion circuits a second, it would still 
+take almost two years to examine all the possible circuits with only 20 
+cities! Certainly Brute Force is <strong>not </strong>an efficient algorithm.</p>
+<div class="textbox">
+<div>
+<h3>Nearest Neighbor Algorithm (NNA)</h3>
+</div>
+<div>
+<p>1.&nbsp;&nbsp;&nbsp;&nbsp; Select a starting point.</p>
+<p>2.&nbsp;&nbsp;&nbsp;&nbsp; Move to the nearest unvisited vertex (the edge with smallest weight).</p>
+<p>3.&nbsp;&nbsp;&nbsp;&nbsp; Repeat until the circuit is complete.</p>
+</div>
+</div>
+<p>Unfortunately, no one has yet found an efficient <em>and</em> optimal
+ algorithm to solve the TSP, and it is very unlikely anyone ever will. 
+Since it is not practical to use brute force to solve the problem, we 
+turn instead to <strong>heuristic algorithms</strong>; efficient 
+algorithms that give approximate solutions. In other words, heuristic 
+algorithms are fast, but may or may not produce the optimal circuit.</p>
+<div class="textbox exercises">
+<h3>Example</h3>
+<div>
+<p>Consider our earlier graph, shown to the right.</p>
+<p>Starting at vertex A, the nearest neighbor is vertex D with a weight of 1.</p>
+<p>From D, the nearest neighbor is C, with a weight of 8.</p>
+<p>From C, our only option is to move to vertex B, the only unvisited vertex, with a cost of 13.</p>
+<p>From B we return to A with a weight of 4.</p>
+<div class="wp-nocaption  wp-image-1865 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16230234/Untitled19.png"><img class=" wp-image-1865 aligncenter" src="graphs_files/Untitled19.png" alt="triangular graph with 4 vertices and 6 edges. There is one vertex in the center of the triangle." srcset="graphs_files/Untitled19.png 85w, graphs_files/Untitled19-65x60.png 65w" sizes="(max-width: 126px) 100vw, 126px" width="126" height="116"></a></div>
+<p>The resulting circuit is ADCBA with a total weight of <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-5-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 113%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;8&lt;/mn&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;13&lt;/mn&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;26&lt;/mn&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-82" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-83" class="mjx-mrow"><span id="MJXc-Node-84" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.335em;">1</span></span><span id="MJXc-Node-85" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.279em; padding-bottom: 0.445em;">+</span></span><span id="MJXc-Node-86" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.39em;">8</span></span><span id="MJXc-Node-87" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.279em; padding-bottom: 0.445em;">+</span></span><span id="MJXc-Node-88" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.39em;">13</span></span><span id="MJXc-Node-89" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.279em; padding-bottom: 0.445em;">+</span></span><span id="MJXc-Node-90" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.335em;">4</span></span><span id="MJXc-Node-91" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.058em; padding-bottom: 0.335em;">=</span></span><span id="MJXc-Node-92" class="mjx-mn MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.39em; padding-bottom: 0.39em;">26</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>+</mo><mn>8</mn><mo>+</mo><mn>13</mn><mo>+</mo><mn>4</mn><mo>=</mo><mn>26</mn></math></span></span><script type="math/tex" id="MathJax-Element-5">1+8+13+4 = 26</script>.</p>
+</div>
+</div>
+<p>Watch the example worked out in the following video.</p>
+<p><iframe src="graphs_files/SqOP5n9bNX4.html" allowfullscreen="" width="500" height="281" frameborder="0"></iframe></p>
+<p>We ended up finding the worst circuit in the graph! What happened? 
+Unfortunately, while it is very easy to implement, the NNA is a <strong>greedy</strong>
+ algorithm, meaning it only looks at the immediate decision without 
+considering the consequences in the future. In this case, following the 
+edge AD forced us to use the very expensive edge BC later.</p>
+<div class="textbox exercises">
+<h3>Example</h3>
+<div>
+<p>Consider again our salesman. Starting in Seattle, the nearest neighbor (cheapest flight) is to LA, at a cost of $70. From there:</p>
+<div class="wp-nocaption  wp-image-1870 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16231425/Untitled21.png"><img class=" wp-image-1870 aligncenter" src="graphs_files/Untitled21.png" alt="" srcset="graphs_files/Untitled21.png 206w, graphs_files/Untitled21-65x35.png 65w" sizes="(max-width: 438px) 100vw, 438px" width="438" height="234"></a></div>
+<p>LA to Chicago: $100</p>
+<p>Chicago to Atlanta: $75</p>
+<p>Atlanta to Dallas: $85</p>
+<p>Dallas to Seattle: $120</p>
+<p>Total cost: $450</p>
+<p>&nbsp;</p>
+<p>In this case, nearest neighbor did find the optimal circuit.</p>
+</div>
+</div>
+<p>Watch this example worked out again in this video.</p>
+<p><iframe src="graphs_files/3Eq36iqjGKI.html" allowfullscreen="" width="500" height="281" frameborder="0"></iframe></p>
+<p>&nbsp;</p>
+<p>Going back to our first example, how could we improve the outcome? 
+One option would be to redo the nearest neighbor algorithm with a 
+different starting point to see if the result changed. Since nearest 
+neighbor is so fast, doing it several times isn’t a big deal.</p>
+<div class="textbox exercises">
+<h3>Example</h3>
+<div>
+<p>We will revisit the graph from Example 17.</p>
+<div class="wp-nocaption wp-image-1865 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16230234/Untitled19.png"><img class="wp-image-1865 aligncenter" src="graphs_files/Untitled19.png" alt="triangular graph with 4 vertices and 6 edges. There is one vertex in the center of the triangle." srcset="graphs_files/Untitled19.png 85w, graphs_files/Untitled19-65x60.png 65w" sizes="(max-width: 260px) 100vw, 260px" width="260" height="238"></a></div>
+<p>Starting at vertex A resulted in a circuit with weight 26.</p>
+<p>Starting at vertex B, the nearest neighbor circuit is BADCB with a 
+weight of 4+1+8+13 = 26. This is the same circuit we found starting at 
+vertex A. No better.</p>
+<p>Starting at vertex C, the nearest neighbor circuit is CADBC with a weight of 2+1+9+13 = 25. Better!</p>
+<p>Starting at vertex D, the nearest neighbor circuit is DACBA. Notice 
+that this is actually the same circuit we found starting at C, just 
+written with a different starting vertex.</p>
+<p>The RNNA was able to produce a slightly better circuit with a weight 
+of 25, but still not the optimal circuit in this case. Notice that even 
+though we found the circuit by starting at vertex C, we could still 
+write the circuit starting at A: ADBCA or ACBDA.</p>
+</div>
+</div>
+<p>&nbsp;</p>
+<div class="textbox key-takeaways">
+<h3>try it now</h3>
+<p>The table below shows the time, in milliseconds, it takes to send a 
+packet of data between computers on a network. If data needed to be sent
+ in sequence to each computer, then notification needed to come back to 
+the original computer, we would be solving the TSP. The computers are 
+labeled A-F for convenience.</p>
+<table>
+<tbody>
+<tr>
+<td></td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+</tr>
+<tr>
+<td>A</td>
+<td>—</td>
+<td>44</td>
+<td>34</td>
+<td>12</td>
+<td>40</td>
+<td>41</td>
+</tr>
+<tr>
+<td>B</td>
+<td>44</td>
+<td>—</td>
+<td>31</td>
+<td>43</td>
+<td>24</td>
+<td>50</td>
+</tr>
+<tr>
+<td>C</td>
+<td>34</td>
+<td>31</td>
+<td>—</td>
+<td>20</td>
+<td>39</td>
+<td>27</td>
+</tr>
+<tr>
+<td>D</td>
+<td>12</td>
+<td>43</td>
+<td>20</td>
+<td>—</td>
+<td>11</td>
+<td>17</td>
+</tr>
+<tr>
+<td>E</td>
+<td>40</td>
+<td>24</td>
+<td>39</td>
+<td>11</td>
+<td>—</td>
+<td>42</td>
+</tr>
+<tr>
+<td>F</td>
+<td>41</td>
+<td>50</td>
+<td>27</td>
+<td>17</td>
+<td>42</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<div>
+<p>a.&nbsp;&nbsp;&nbsp;&nbsp; Find the circuit generated by the NNA starting at vertex B.</p>
+<p>b.&nbsp;&nbsp;&nbsp;&nbsp; Find the circuit generated by the RNNA.</p>
+</div>
+</div>
+<p>While certainly better than the basic NNA, unfortunately, the RNNA is
+ still greedy and will produce very bad results for some graphs. As an 
+alternative, our next approach will step back and look at the “big 
+picture” – it will select first the edges that are shortest, and then 
+fill in the gaps.</p>
+<div class="textbox exercises">
+<h3>Example</h3>
+<div>
+<p>Using the four vertex graph from earlier, we can use the Sorted Edges algorithm.</p>
+<div class="wp-nocaption alignnone size-full wp-image-1865"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16230234/Untitled19.png"><img class="alignnone size-full wp-image-1865" src="graphs_files/Untitled19.png" alt="triangular graph with 4 vertices and 6 edges. There is one vertex in the center of the triangle." srcset="graphs_files/Untitled19.png 85w, graphs_files/Untitled19-65x60.png 65w" sizes="(max-width: 85px) 100vw, 85px" width="85" height="78"></a></div>
+<p>The cheapest edge is AD, with a cost of 1. We highlight that edge to mark it selected.</p>
+</div>
+<p>The next shortest edge is AC, with a weight of 2, so we highlight that edge.</p>
+<div class="wp-nocaption wp-image-1871 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16231715/Untitled22.png"><img class="wp-image-1871 aligncenter" src="graphs_files/Untitled22.png" alt="triangular graph with 4 vertices and 6 edges. There is one vertex in the center of the triangle. The edge between A and D is highlighted" srcset="graphs_files/Untitled22.png 85w, graphs_files/Untitled22-65x60.png 65w" sizes="(max-width: 165px) 100vw, 165px" width="165" height="151"></a></div>
+<div class="wp-nocaption  wp-image-1872 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16231825/Untitled23.png"><img class=" wp-image-1872 aligncenter" src="graphs_files/Untitled23.png" alt="triangular graph with 4 vertices and 6 edges. There is one vertex in the center of the triangle. Edges between A and D and A and C are highlighted." srcset="graphs_files/Untitled23.png 85w, graphs_files/Untitled23-65x60.png 65w" sizes="(max-width: 179px) 100vw, 179px" width="179" height="164"></a></div>
+<p>For the third edge, we’d like to add AB, but that would give vertex A
+ degree 3, which is not allowed in a Hamiltonian circuit. The next 
+shortest edge is CD, but that edge would create a circuit ACDA that does
+ not include vertex B, so we reject that edge. The next shortest edge is
+ BD, so we add that edge to the graph.</p>
+<div id="attachment_1873" style="width: 190px" class="wp-caption aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16231918/Untitled24.png"><img class="wp-image-1873" src="graphs_files/Untitled24.png" alt="triangular graph with 4 vertices and 6 edges. There is one vertex in the center of the triangle. Edges between A and D and A and C are highlighted. Edge between A and B is highlighted." srcset="graphs_files/Untitled24.png 85w, graphs_files/Untitled24-65x60.png 65w" sizes="(max-width: 180px) 100vw, 180px" width="180" height="165"></a><p></p>
+<p class="wp-caption-text">BAD</p>
+</div>
+<div id="attachment_1874" style="width: 190px" class="wp-caption aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16232033/Untitled25.png"><img class="wp-image-1874" src="graphs_files/Untitled25.png" alt="triangular graph with 4 vertices and 6 edges. There is one vertex in the center of the triangle. Edges between A and D and A and C are highlighted. " srcset="graphs_files/Untitled25.png 85w, graphs_files/Untitled25-65x60.png 65w" sizes="(max-width: 180px) 100vw, 180px" width="180" height="165"></a><p></p>
+<p class="wp-caption-text">BAD</p>
+</div>
+<div id="attachment_1875" style="width: 234px" class="wp-caption aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16232208/Untitled26.png"><img class="wp-image-1875 " src="graphs_files/Untitled26.png" alt="triangular graph with 4 vertices and 6 edges. There is one vertex in the center of the triangle. Edges between A and D and A and C are highlighted." srcset="graphs_files/Untitled26.png 85w, graphs_files/Untitled26-65x60.png 65w" sizes="(max-width: 224px) 100vw, 224px" width="224" height="206"></a><p></p>
+<p class="wp-caption-text">OK</p>
+</div>
+<div>
+<p>We then add the last edge to complete the circuit: ACBDA with weight 25.</p>
+<div>
+<p>Notice that the algorithm did not produce the optimal circuit in this case; the optimal circuit is ACDBA with weight 23.</p>
+<div class="wp-nocaption wp-image-1876 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16232257/Untitled27.png"><img class="wp-image-1876 aligncenter" src="graphs_files/Untitled27.png" alt="Notice that the algorithm did not produce the optimal circuit in this case; the optimal circuit is ACDBA with weight 23. " srcset="graphs_files/Untitled27.png 85w, graphs_files/Untitled27-65x60.png 65w" sizes="(max-width: 180px) 100vw, 180px" width="180" height="165"></a></div>
+<p>While the Sorted Edge algorithm overcomes some of the shortcomings of
+ NNA, it is still only a heuristic algorithm, and does not guarantee the
+ optimal circuit.</p>
+</div>
+</div>
+</div>
+<div class="textbox exercises">
+<h3>Example</h3>
+<div>
+<p>Your teacher’s band, <em>Derivative Work</em>, is doing a bar tour in
+ Oregon. The driving distances are shown below. Plan an efficient route 
+for your teacher to visit all the cities and return to the starting 
+location. Use NNA starting at Portland, and then use Sorted Edges.</p>
+<div style="width: auto; overflow-y: auto; overflow-x: scroll;">
+<table style="width: 586px; height: 333px;">
+<tbody>
+<tr>
+<td></td>
+<td>&nbsp;Ashland</td>
+<td>Astoria</td>
+<td>&nbsp;Bend</td>
+<td>&nbsp;Corvallis</td>
+<td>&nbsp;Crater Lake</td>
+<td>&nbsp;Eugene</td>
+<td>&nbsp;Newport</td>
+<td>&nbsp;Portland</td>
+<td>&nbsp;Salem</td>
+<td>&nbsp;Seaside</td>
+</tr>
+<tr>
+<td>Ashland</td>
+<td>–</td>
+<td>374</td>
+<td>200</td>
+<td>223</td>
+<td>108</td>
+<td>178</td>
+<td>252</td>
+<td>285</td>
+<td>240</td>
+<td>356</td>
+</tr>
+<tr>
+<td>Astoria</td>
+<td>374</td>
+<td>–</td>
+<td>255</td>
+<td>166</td>
+<td>433</td>
+<td>199</td>
+<td>135</td>
+<td>95</td>
+<td>136</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Bend</td>
+<td>200</td>
+<td>255</td>
+<td>–</td>
+<td>128</td>
+<td>277</td>
+<td>128</td>
+<td>180</td>
+<td>160</td>
+<td>131</td>
+<td>247</td>
+</tr>
+<tr>
+<td>Corvallis</td>
+<td>223</td>
+<td>166</td>
+<td>128</td>
+<td>–</td>
+<td>430</td>
+<td>47</td>
+<td>52</td>
+<td>84</td>
+<td>40</td>
+<td>155</td>
+</tr>
+<tr>
+<td>Crater Lake</td>
+<td>108</td>
+<td>433</td>
+<td>277</td>
+<td>430</td>
+<td>–</td>
+<td>453</td>
+<td>478</td>
+<td>344</td>
+<td>389</td>
+<td>423</td>
+</tr>
+<tr>
+<td>Eugene</td>
+<td>178</td>
+<td>199</td>
+<td>128</td>
+<td>47</td>
+<td>453</td>
+<td>–</td>
+<td>91</td>
+<td>110</td>
+<td>64</td>
+<td>181</td>
+</tr>
+<tr>
+<td>Newport</td>
+<td>252</td>
+<td>135</td>
+<td>180</td>
+<td>52</td>
+<td>478</td>
+<td>91</td>
+<td>–</td>
+<td>114</td>
+<td>83</td>
+<td>117</td>
+</tr>
+<tr>
+<td>Portland</td>
+<td>285</td>
+<td>95</td>
+<td>160</td>
+<td>84</td>
+<td>344</td>
+<td>110</td>
+<td>114</td>
+<td>–</td>
+<td>47</td>
+<td>78</td>
+</tr>
+<tr>
+<td>Salem</td>
+<td>240</td>
+<td>136</td>
+<td>131</td>
+<td>40</td>
+<td>389</td>
+<td>64</td>
+<td>83</td>
+<td>47</td>
+<td>–</td>
+<td>118</td>
+</tr>
+<tr>
+<td>Seaside</td>
+<td>356</td>
+<td>17</td>
+<td>247</td>
+<td>155</td>
+<td>423</td>
+<td>181</td>
+<td>117</td>
+<td>78</td>
+<td>118</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align: center;"><em>To see the entire table, scroll to the right</em></p>
+<p style="text-align: left;">Using NNA with a large number of cities, 
+you might find it helpful to mark off the cities as they’re visited to 
+keep from accidently visiting them again. Looking in the row for 
+Portland, the smallest distance is 47, to Salem. Following that idea, 
+our circuit will be:</p>
+</div>
+<div align="center">
+<p>Portland to 
+Salem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 47</p>
+<p>Salem to 
+Corvallis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 40</p>
+<p>Corvallis to Eugene&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 47</p>
+<p>Eugene to Newport&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 91</p>
+<p>Newport to Seaside&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 117</p>
+<p>Seaside to 
+Astoria&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 17</p>
+<p>Astoria to 
+Bend&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 255</p>
+<p>Bend to 
+Ashland&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 200</p>
+<p>Ashland to Crater Lake&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 108</p>
+<p>Crater Lake to Portland&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 344</p>
+<p>Total trip length:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1266 
+miles</p>
+</div>
+<div>
+<p style="text-align: left;">Using Sorted Edges, you might find it 
+helpful to draw an empty graph, perhaps by drawing vertices in a 
+circular pattern. Adding edges to the graph as you select them will help
+ you visualize any circuits or vertices with degree 3.</p>
+<div class="wp-nocaption  wp-image-1877 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16232457/Untitled28.png"><img class=" wp-image-1877 aligncenter" src="graphs_files/Untitled28.png" alt="" srcset="graphs_files/Untitled28.png 203w, graphs_files/Untitled28-65x46.png 65w" sizes="(max-width: 263px) 100vw, 263px" width="263" height="188"></a></div>
+<div>
+<p style="text-align: center;">We start adding the shortest edges:</p>
+<p style="text-align: center;">Seaside to Astoria&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 17 miles</p>
+<p style="text-align: center;">Corvallis to Salem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 40 miles</p>
+<p style="text-align: center;">Portland to Salem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 47 miles</p>
+<p style="text-align: center;">Corvallis to Eugene&nbsp;&nbsp;&nbsp;&nbsp; 47 miles</p>
+<div class="wp-nocaption  wp-image-1878 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16232601/Untitled29.png"><img class=" wp-image-1878 aligncenter" src="graphs_files/Untitled29.png" alt="ring of dots with city names in problem as labels. edges between Seaside and Astoria, Eugene and Corvallis, Salem and Corvallis, and Salem and Portland." srcset="graphs_files/Untitled29.png 191w, graphs_files/Untitled29-65x50.png 65w" sizes="(max-width: 298px) 100vw, 298px" width="298" height="228"></a></div>
+<div>
+<p>The graph after adding these edges is shown to the right.&nbsp;&nbsp;
+ The next shortest edge is from Corvallis to Newport at 52 miles, but 
+adding that edge would give Corvallis degree 3.</p>
+<p>&nbsp;</p>
+<p>Continuing on, we can skip over any edge pair that contains Salem or Corvallis, since they both already have degree 2.</p>
+<p>Portland to Seaside &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 78 miles</p>
+<p>Eugene to Newport&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 91 miles</p>
+<p>Portland to Astoria&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+(reject – closes circuit)</p>
+<p>Ashland to Crater Lk&nbsp; 108 miles</p>
+<div class="wp-nocaption  wp-image-1879 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16232748/Untitled30.png"><img class=" wp-image-1879 aligncenter" src="graphs_files/Untitled30.png" alt="" srcset="graphs_files/Untitled30.png 191w, graphs_files/Untitled30-65x50.png 65w" sizes="(max-width: 331px) 100vw, 331px" width="331" height="253"></a></div>
+<div>
+<p>The graph after adding these edges is shown to the right. At this 
+point, we can skip over any edge pair that contains Salem, Seaside, 
+Eugene, Portland, or Corvallis since they already have degree 2.</p>
+<p>&nbsp;</p>
+<p style="text-align: center;">Newport to Astoria&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+(reject – closes circuit)</p>
+<p style="text-align: center;">Newport to 
+Bend&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 180 
+miles</p>
+<p style="text-align: center;">Bend to 
+Ashland&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 200 
+miles</p>
+<p>&nbsp;</p>
+<p style="text-align: left;">At this point the only way to complete the circuit is to add:</p>
+<p style="text-align: left;">Crater Lk to Astoria&nbsp;&nbsp; 433 miles. &nbsp;The final circuit, written to start at Portland, is:</p>
+<p style="text-align: left;">Portland, Salem, Corvallis, Eugene, 
+Newport, Bend, Ashland, Crater Lake, Astoria, Seaside, Portland. 
+&nbsp;Total trip length: 1241 miles.</p>
+<p style="text-align: left;">While better than the NNA route, neither 
+algorithm produced the optimal route. The following route can make the 
+tour in 1069 miles:</p>
+<p style="text-align: left;">Portland, Astoria, Seaside, Newport, Corvallis, Eugene, Ashland, Crater Lake, Bend, Salem, Portland</p>
+<div class="wp-nocaption wp-image-1880 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16232906/Untitled31.png"><img class="wp-image-1880 aligncenter" src="graphs_files/Untitled31.png" alt="" srcset="graphs_files/Untitled31.png 191w, graphs_files/Untitled31-65x50.png 65w" sizes="(max-width: 399px) 100vw, 399px" width="399" height="305"></a></div>
+</div>
+</div>
+</div>
+<p style="text-align: left;">
+</p></div>
+</div>
+</div>
+<p>Watch the example of nearest neighbor algorithm for traveling from city to city using a table worked out in the video below.</p>
+<p><iframe src="graphs_files/GFp-046PQx0.html" allowfullscreen="" width="500" height="281" frameborder="0"></iframe></p>
+<p>In the next video we use the same table, but use sorted edges to plan the trip.</p>
+<p><iframe src="graphs_files/_gXyujMsrmw.html" allowfullscreen="" width="500" height="281" frameborder="0"></iframe></p>
+<div>
+<div class="textbox key-takeaways">
+<h3>try it now</h3>
+<div>
+<p>Find the circuit produced by the Sorted Edges algorithm using the graph below.</p>
+<div class="wp-nocaption aligncenter wp-image-1881"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16232952/Untitled32.png"><img class="aligncenter wp-image-1881" src="graphs_files/Untitled32.png" alt="graph with 6 vertices and 14 edges. between B and E is 13, between E and G is 45, between G and F is 19, between F and C is 37, between c and A is 33 between A and B is 11. Between B and C is 25, between B and F is 23, between E and A is 14, between E and F is 15. Between G and B is 13, and between G and C is 36. Between G and A is 27." srcset="graphs_files/Untitled32.png 231w, graphs_files/Untitled32-65x37.png 65w, graphs_files/Untitled32-225x130.png 225w" sizes="(max-width: 325px) 100vw, 325px" width="325" height="187"></a></div>
+<p><iframe id="mom1" class="resizable" src="graphs_files/multiembedq_003.html" style="height: 541px;" width="100%" height="530"></iframe></p>
+</div>
+</div>
+<h3>&nbsp;Spanning Trees</h3>
+<p>A company requires reliable internet and phone connectivity between 
+their five offices (named A, B, C, D, and E for simplicity) in New York,
+ so they decide to lease dedicated lines from the phone company. The 
+phone company will charge for each link made. The costs, in thousands of
+ dollars per year, are shown in the graph.</p>
+<div class="wp-nocaption  wp-image-1882 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16233317/Untitled33.png"><img class=" wp-image-1882 aligncenter" src="graphs_files/Untitled33.png" alt="graph with 5 vertices and 11 edges. between A and B is $4, between B and C is $10, between C and D is $7, between D and E is $13, between E and B is $6, between E and C is $11, between A and D is $6, between A and C is $8. Between B and E is $6, between B and D is $14." srcset="graphs_files/Untitled33.png 182w, graphs_files/Untitled33-65x39.png 65w" sizes="(max-width: 294px) 100vw, 294px" width="294" height="176"></a></div>
+<p>In this case, we don’t need to find a circuit, or even a specific 
+path; all we need to do is make sure we can make a call from any office 
+to any other. In other words, we need to be sure there is a path from 
+any vertex to any other vertex.</p>
+<div class="textbox">
+<div>
+<h3>Spanning Tree</h3>
+</div>
+<div>
+<p>A <strong>spanning tree</strong> is a connected graph using all vertices in which there are no circuits.</p>
+<p>In other words, there is a path from any vertex to any other vertex, but no circuits.</p>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Some examples of spanning trees are shown below. Notice there are no 
+circuits in the trees, and it is fine to have vertices with degree 
+higher than two.</p>
+<div class="wp-nocaption alignnone wp-image-1883"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16233719/Screen-Shot-2017-03-16-at-4.37.02-PM.png"><img class="alignnone wp-image-1883" src="graphs_files/Screen-Shot-2017-03-16-at-4_005.png" alt="" srcset="graphs_files/Screen-Shot-2017-03-16-at-4_005.png 300w, graphs_files/Screen-Shot-2017-03-16-at-4_002.png 65w, graphs_files/Screen-Shot-2017-03-16-at-4_003.png 225w, graphs_files/Screen-Shot-2017-03-16-at-4_004.png 350w, graphs_files/Screen-Shot-2017-03-16-at-4.png 381w" sizes="(max-width: 467px) 100vw, 467px" width="467" height="67"></a></div>
+<p>Usually we have a starting graph to work from, like in the phone 
+example above. In this case, we form our spanning tree by finding a <strong>subgraph</strong>
+ – a new graph formed using all the vertices but only some of the edges 
+from the original graph. No edges will be created where they didn’t 
+already exist.</p>
+<p>Of course, any random spanning tree isn’t really what we want. We want the <strong>minimum cost spanning tree (MCST)</strong>.</p>
+<div class="textbox">
+<div>
+<h3>Minimum Cost Spanning Tree (MCST)</h3>
+</div>
+<div>
+<p>The minimum cost spanning tree is the spanning tree with the smallest total edge weight.</p>
+</div>
+</div>
+<p>A nearest neighbor style approach doesn’t make as much sense here 
+since we don’t need a circuit, so instead we will take an approach 
+similar to sorted edges.</p>
+<div class="textbox">
+<div>
+<h3>Kruskal’s Algorithm</h3>
+</div>
+<div>
+<ol>
+<li>Select the cheapest unused edge in the graph.</li>
+<li>Repeat step 1, adding the cheapest unused edge, unless:</li>
+<li>adding the edge would create a circuit</li>
+</ol>
+<p>Repeat until a spanning tree is formed</p>
+</div>
+</div>
+<p>&nbsp;</p>
+<div class="textbox exercises">
+<h3>Example</h3>
+<div>
+<p>Using our phone line graph from above, begin adding edges:</p>
+<p>AB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OK</p>
+<p>AE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OK</p>
+<p>BE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reject – closes circuit ABEA</p>
+<p>DC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OK</p>
+<p>AC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OK</p>
+<div class="wp-nocaption wp-image-1884 aligncenter"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16233916/Untitled34.png"><img class="wp-image-1884 aligncenter" src="graphs_files/Untitled34.png" alt="" srcset="graphs_files/Untitled34.png 182w, graphs_files/Untitled34-65x39.png 65w" sizes="(max-width: 362px) 100vw, 362px" width="362" height="219"></a></div>
+<p>At this point we stop – every vertex is now connected, so we have formed a spanning tree with cost $24 thousand a year.</p>
+</div>
+</div>
+<p>Remarkably, Kruskal’s algorithm is both optimal and efficient; we are guaranteed to always produce the optimal MCST.</p>
+<div class="textbox exercises">
+<h3>Example</h3>
+<div>
+<p>The power company needs to lay updated distribution lines connecting 
+the ten Oregon cities below to the power grid. How can they minimize the
+ amount of new line to lay?</p>
+<div style="width: auto; overflow-y: auto; overflow-x: scroll;">
+<table style="width: 586px; height: 333px;">
+<tbody>
+<tr>
+<td></td>
+<td>&nbsp;Ashland</td>
+<td>Astoria</td>
+<td>&nbsp;Bend</td>
+<td>&nbsp;Corvallis</td>
+<td>&nbsp;Crater Lake</td>
+<td>&nbsp;Eugene</td>
+<td>&nbsp;Newport</td>
+<td>&nbsp;Portland</td>
+<td>&nbsp;Salem</td>
+<td>&nbsp;Seaside</td>
+</tr>
+<tr>
+<td>Ashland</td>
+<td>–</td>
+<td>374</td>
+<td>200</td>
+<td>223</td>
+<td>108</td>
+<td>178</td>
+<td>252</td>
+<td>285</td>
+<td>240</td>
+<td>356</td>
+</tr>
+<tr>
+<td>Astoria</td>
+<td>374</td>
+<td>–</td>
+<td>255</td>
+<td>166</td>
+<td>433</td>
+<td>199</td>
+<td>135</td>
+<td>95</td>
+<td>136</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Bend</td>
+<td>200</td>
+<td>255</td>
+<td>–</td>
+<td>128</td>
+<td>277</td>
+<td>128</td>
+<td>180</td>
+<td>160</td>
+<td>131</td>
+<td>247</td>
+</tr>
+<tr>
+<td>Corvallis</td>
+<td>223</td>
+<td>166</td>
+<td>128</td>
+<td>–</td>
+<td>430</td>
+<td>47</td>
+<td>52</td>
+<td>84</td>
+<td>40</td>
+<td>155</td>
+</tr>
+<tr>
+<td>Crater Lake</td>
+<td>108</td>
+<td>433</td>
+<td>277</td>
+<td>430</td>
+<td>–</td>
+<td>453</td>
+<td>478</td>
+<td>344</td>
+<td>389</td>
+<td>423</td>
+</tr>
+<tr>
+<td>Eugene</td>
+<td>178</td>
+<td>199</td>
+<td>128</td>
+<td>47</td>
+<td>453</td>
+<td>–</td>
+<td>91</td>
+<td>110</td>
+<td>64</td>
+<td>181</td>
+</tr>
+<tr>
+<td>Newport</td>
+<td>252</td>
+<td>135</td>
+<td>180</td>
+<td>52</td>
+<td>478</td>
+<td>91</td>
+<td>–</td>
+<td>114</td>
+<td>83</td>
+<td>117</td>
+</tr>
+<tr>
+<td>Portland</td>
+<td>285</td>
+<td>95</td>
+<td>160</td>
+<td>84</td>
+<td>344</td>
+<td>110</td>
+<td>114</td>
+<td>–</td>
+<td>47</td>
+<td>78</td>
+</tr>
+<tr>
+<td>Salem</td>
+<td>240</td>
+<td>136</td>
+<td>131</td>
+<td>40</td>
+<td>389</td>
+<td>64</td>
+<td>83</td>
+<td>47</td>
+<td>–</td>
+<td>118</td>
+</tr>
+<tr>
+<td>Seaside</td>
+<td>356</td>
+<td>17</td>
+<td>247</td>
+<td>155</td>
+<td>423</td>
+<td>181</td>
+<td>117</td>
+<td>78</td>
+<td>118</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="text-align: center;"><em>To see the entire table, scroll to the right</em></div>
+<div style="text-align: center;"></div>
+<div>
+<p>Using Kruskal’s algorithm, we add edges from cheapest to most 
+expensive, rejecting any that close a circuit. We stop when the graph is
+ connected.</p>
+<div align="center">
+<p>Seaside to Astoria&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 17 
+milesCorvallis to Salem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 40 
+miles</p>
+<p>Portland to Salem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 47 
+miles</p>
+<p>Corvallis to Eugene&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 47 miles</p>
+<p>Corvallis to Newport&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 52 miles</p>
+<p>Salem to Eugene &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; reject – closes circuit</p>
+<p>Portland to Seaside&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 78 miles</p>
+<p style="text-align: center;"><em>The graph up to this point is shown below.</em></p>
+<div class="wp-nocaption alignnone wp-image-1885"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16234123/Untitled35.png"><img class="alignnone wp-image-1885" src="graphs_files/Untitled35.png" alt="" srcset="graphs_files/Untitled35.png 191w, graphs_files/Untitled35-65x50.png 65w" sizes="(max-width: 298px) 100vw, 298px" width="298" height="228"></a></div>
+<p style="text-align: left;">Continuing,</p>
+<p>Newport to Salem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reject</p>
+<p>Corvallis to Portland&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reject</p>
+<p>Eugene to Newport&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reject</p>
+<p>Portland to Astoria&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reject</p>
+<p>Ashland to Crater Lk&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 108 miles</p>
+<p>Eugene to Portland&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reject</p>
+<p>Newport to Portland&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reject</p>
+<p>Newport to Seaside&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reject</p>
+<div>
+<p>Salem to 
+Seaside&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+reject</p>
+<p>Bend to 
+Eugene&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 128 
+miles</p>
+<p>Bend to 
+Salem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+reject</p>
+<p>Astoria to Newport &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reject</p>
+<p>Salem to Astoria 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ reject</p>
+<p>Corvallis to Seaside&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reject</p>
+<p>Portland to 
+Bend&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ reject</p>
+<p>Astoria to Corvallis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reject</p>
+<p>Eugene to 
+Ashland&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 178 miles</p>
+<p>&nbsp;</p>
+<p>This connects the graph. The total length of cable to lay would be 695 miles.</p>
+<div class="wp-nocaption alignnone wp-image-1886"><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16234225/Untitled36.png"><img class="alignnone wp-image-1886" src="graphs_files/Untitled36.png" alt="" srcset="graphs_files/Untitled36.png 191w, graphs_files/Untitled36-65x49.png 65w" sizes="(max-width: 342px) 100vw, 342px" width="342" height="260"></a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Watch the example above worked out in the following video, without a table.</p>
+<p><iframe src="graphs_files/gaXM0HNErc4.html" allowfullscreen="" width="500" height="281" frameborder="0"></iframe></p>
+<p>Now we present the same example, with a table in the following video.</p>
+<p><iframe src="graphs_files/Pu2_2ftkwdo.html" allowfullscreen="" width="500" height="281" frameborder="0"></iframe></p>
+<div class="textbox key-takeaways">
+<h3>try it now</h3>
+<p>Find a minimum cost spanning tree on the graph below using Kruskal’s algorithm.</p>
+<p><a href="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1141/2017/03/16234312/Untitled37.png"><img class="aligncenter wp-image-1887" src="graphs_files/Untitled37.png" alt="graph with 6 vertices and 14 edges. between B and E is 13, between E and G is 45, between G and F is 19, between F and C is 37, between c and A is 33 between A and B is 11. Between B and C is 25, between B and F is 23, between E and A is 14, between E and F is 15. Between G and B is 13, and between G and C is 36. Between G and A is 27." srcset="graphs_files/Untitled37.png 231w, graphs_files/Untitled37-65x37.png 65w, graphs_files/Untitled37-225x130.png 225w" sizes="(max-width: 309px) 100vw, 309px" width="309" height="178"></a><br>
+<iframe id="mom5" class="resizable" src="graphs_files/multiembedq_004.html" style="height: 762px;" width="100%" height="200"></iframe></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="#_ftnref1">[1]</a> There are some theorems that can be used 
+in specific circumstances, such as Dirac’s theorem, which says that a 
+Hamiltonian circuit must exist on a graph with <em>n</em> vertices if each vertex has degree <em>n</em>/2 or greater.</p>
+</div>
+
+					</div><!-- .entry-content -->
+				</div><!-- #post-## -->
+
+                  <!-- CITATIONS AND ATTRIBUTIONS -->
+          <section class="citations-section focusable" role="contentinfo" tabindex="-1">
+            <div class="post-citations sidebar">
+              <div role="button" aria-pressed="false" id="citation-header-1219" class="collapsed license-attribution-dropdown">Licenses and Attributions</div>
+              <div id="citation-list-1219" style="display:none;">
+                <div class="licensing"><div class="license-attribution-dropdown-subheading">CC licensed content, Original</div><ul class="citation-list"><li>Revision and Adaptaion. <strong>Provided by</strong>: Lumen Learning. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY: Attribution</a></em></li><li>Learning Outcomes and Introduction. <strong>Provided by</strong>: Lumen Learning. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY: Attribution</a></em></li></ul><div class="license-attribution-dropdown-subheading">CC licensed content, Shared previously</div><ul class="citation-list"><li>Graph Theory: Euler Paths and Euler Circuits . <strong>Authored by</strong>: James Sousa (Mathispower4u.com). <strong>Located at</strong>: <a target="_blank" href="https://youtu.be/5M-m62qTR-s">https://youtu.be/5M-m62qTR-s</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY: Attribution</a></em></li><li>Math in Society. <strong>Authored by</strong>: Lippman, David. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY: Attribution</a></em></li><li>Graph Theory: Fleury's Algorthim . <strong>Authored by</strong>: James Sousa (Mathispower4u.com). <strong>Located at</strong>: <a target="_blank" href="https://youtu.be/vvP4Fg4r-Ns">https://youtu.be/vvP4Fg4r-Ns</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY: Attribution</a></em></li><li>Hamiltonian circuits. <strong>Authored by</strong>: OCLPhase2. <strong>Located at</strong>: <a target="_blank" href="https://youtu.be/lUqCtywkskU">https://youtu.be/lUqCtywkskU</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY: Attribution</a></em></li><li>Hamiltonian circuits . <strong>Authored by</strong>: David Lippman. <strong>Located at</strong>: <a target="_blank" href="https://youtu.be/SjtVuw4-1Qo">https://youtu.be/SjtVuw4-1Qo</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY: Attribution</a></em></li><li>TSP by brute force . <strong>Authored by</strong>: OCLPhase2. <strong>Located at</strong>: <a target="_blank" href="https://youtu.be/wDXQ6tWsJxw">https://youtu.be/wDXQ6tWsJxw</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY: Attribution</a></em></li><li>Number of circuits in a complete graph . <strong>Authored by</strong>: OCLPhase2. <strong>Located at</strong>: <a target="_blank" href="https://youtu.be/DwZw4t0qxuQ">https://youtu.be/DwZw4t0qxuQ</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY: Attribution</a></em></li><li>Nearest Neighbor ex2 . <strong>Authored by</strong>: OCLPhase2. <strong>Located at</strong>: <a target="_blank" href="https://youtu.be/3Eq36iqjGKI">https://youtu.be/3Eq36iqjGKI</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY: Attribution</a></em></li><li>Sorted Edges ex 2 . <strong>Authored by</strong>: OCLPhase2. <strong>Located at</strong>: <a target="_blank" href="https://youtu.be/QxF23w3DpQc">https://youtu.be/QxF23w3DpQc</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY: Attribution</a></em></li><li>Kruskal's ex 1 . <strong>Authored by</strong>: OCLPhase2. <strong>Located at</strong>: <a target="_blank" href="https://youtu.be/gaXM0HNErc4">https://youtu.be/gaXM0HNErc4</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY: Attribution</a></em></li><li>Kruskal's from a table . <strong>Authored by</strong>: OCLPhase2. <strong>Located at</strong>: <a target="_blank" href="https://youtu.be/Pu2_2ftkwdo">https://youtu.be/Pu2_2ftkwdo</a>. <strong>License</strong>: <em><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY: Attribution</a></em></li></ul></div>              </div>
+            </div>
+          </section>
+        
+
+									<!-- edit page button -->
+									
+				<!-- page nav buttons -->
+				<nav class="bottom-nav-buttons" role="navigation">
+					<a class="post-nav-button" id="prev" href="https://courses.lumenlearning.com/math4liberalarts/chapter/introduction-graph-theory/">
+				Previous			</a>
+		
+					<a class="post-nav-button" id="next" href="https://courses.lumenlearning.com/math4liberalarts/chapter/putting-it-together-graph-theory/">
+				Next			</a>
+			</nav>
+			</div><!-- #content -->
+
+			
+	<!-- This does nothing and exists only to block sidebar.php of the Luther theme from rendering. -->
+
+	</div><!-- #wrap -->
+	<div class="push"></div>
+
+	</div><!-- .wrapper for sitting footer at the bottom of the page -->
+
+<div class="footer">
+	<div class="inner">
+		<!-- logo options -->
+			</div><!-- #inner -->
+</div><!-- #footer -->
+
+<script async="" type="text/javascript" src="graphs_files/keyboard-nav.js"></script>
+<script type="text/javascript" src="graphs_files/audio-behavior.js"></script>
+<script type="text/javascript" src="graphs_files/hide-answer.js"></script>
+<script type="text/javascript" src="graphs_files/lti-buttons.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var wpipaViews = {"url":"https:\/\/courses.lumenlearning.com\/math4liberalarts\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="graphs_files/wp-in-post-ads-views.js"></script>
+<script type="text/javascript" src="graphs_files/wp-embed.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var thePost = {"id":"1219"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="graphs_files/attributions.js"></script>
+<script>if (typeof sendIframeResize === "function") { sendIframeResize(); }</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"0d4d84695b","applicationID":"12680714","transactionName":"ZQBaNkRZXEdZBkcLWlxKeQFCUV1aFxZaDFJeAA==","queueTime":0,"applicationTime":394,"atts":"SUdZQAxDT0k=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script>
+
+</body></html>

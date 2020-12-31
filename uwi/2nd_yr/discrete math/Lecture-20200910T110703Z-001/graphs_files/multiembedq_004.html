@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+<title>MyOpenMath Assessment</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="multiembedq_data_004/NRJS-a1e4ff24cee7c0b20ca"></script><script src="nr-1184.js"></script><script type="text/javascript">(window.NREUM||(NREUM={})).init={privacy:{cookies_enabled:false}};(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-a1e4ff24cee7c0b20ca",applicationID:"253668236"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,y=["click","keydown","mousedown","pointerdown","touchstart"];y.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?f(e,c,o):o()}function n(n,r,i,o){if(!p.aborted||o){e&&e(n,r,i);for(var a=t(i),c=v(n),f=c.length,u=0;u<f;u++)c[u].apply(a,r);var d=s[w[n]];return d&&d.push([b,n,r,a]),a}}function l(e,t){h[e]=v(e).concat(t)}function m(e,t){var n=h[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return h[e]||[]}function g(e){return d[e]=d[e]||i(n)}function y(e,t){u(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var h={},w={},b={on:l,addEventListener:l,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:y,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var c="nr@context",f=e("gos"),u=e(6),s={},d={},p=t.exports=i();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1184.min.js"},w=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:w,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0},{}],"wrap-function":[function(e,t,n){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(7),a="nr@original",c=Object.prototype.hasOwnProperty,f=!1;t.exports=function(e,t){function n(e,t,n,i){function nrWrapper(){var r,a,c,f;try{a=this,r=o(arguments),c="function"==typeof n?n(r,a):n||{}}catch(u){p([u,"",[r,a,i],c])}s(t+"start",[r,a,i],c);try{return f=e.apply(a,r)}catch(d){throw s(t+"err",[r,a,d],c),d}finally{s(t+"end",[r,a,f],c)}}return r(e)?e:(t||(t=""),nrWrapper[a]=e,d(e,nrWrapper),nrWrapper)}function u(e,t,i,o){i||(i="");var a,c,f,u="-"===i.charAt(0);for(f=0;f<t.length;f++)c=t[f],a=e[c],r(a)||(e[c]=n(a,u?c+i:i,o,c))}function s(n,r,i){if(!f||t){var o=f;f=!0;try{e.emit(n,r,i,t)}catch(a){p([a,n,r,i])}f=o}}function d(e,t){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(e);return n.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(r){p([r])}for(var i in e)c.call(e,i)&&(t[i]=e[i]);return t}function p(t){try{e.emit("internal-error",t)}catch(n){}}return e||(e=i),n.inPlace=u,n.flag=a,n}},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript">
+var isImathasAssessment = true;
+function init() {
+	for (var i=0; i<initstack.length; i++) {
+		var foo = initstack[i]();
+	}
+}
+function recordanswer(val, qn, part) {
+	if (part!=null) {
+		qn = (qn+1)*1000 + part;
+	}
+	document.getElementById("qn"+qn).value = val;
+}
+var imasprevans = [];
+function getlastanswer(qn, part) {
+	if (part != null) {
+		return imasprevans[qn+'-'+part];
+	} else {
+		return imasprevans[qn];
+	}
+}
+//add require_once style script loader
+initstack = new Array();
+window.onload = init;
+var imasroot = ''; var cid = 0;
+</script>
+<link rel="stylesheet" href="multiembedq_data_004/mathtest.css" type="text/css">
+<script src="multiembedq_data_004/jquery-1.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script><script>window.jQuery || document.write('<script src="/javascript/jquery.min.js"><\/script>')</script><script type="text/javascript">imasroot = '';staticroot='';</script><link rel="stylesheet" type="text/css" href="multiembedq_data_004/otbs.css">
+<link rel="stylesheet" href="multiembedq_data_004/handheld.css" media="handheld,only screen and (max-width:480px)"><link rel="stylesheet" type="text/css" href="multiembedq_data_004/print.css" media="print">
+<link rel="shortcut icon" href="https://www.myopenmath.com/favicon.ico"><script src="multiembedq_data_004/assessment_min.js" type="text/javascript"></script><script type="text/javascript">var AMTcgiloc = "/cgi-bin/mimetex64.cgi";</script><script src="multiembedq_data_004/ASCIIMathTeXImg_min.js" type="text/javascript"></script>
+<script type="text/x-mathjax-config;executed=true">
+		MathJax.Hub.Config({"messageStyle": "none", asciimath2jax: {ignoreClass:"skipmathrender"}});
+		MathJax.Ajax.config.path["Local"] = "/javascript/mathjax";
+		MathJax.Hub.config.extensions.push("[Local]/InputToDataAttrCDN.js");
+		</script><script type="text/javascript" async="" src="multiembedq_data_004/MathJax.js"></script><script type="text/javascript">noMathRender = false; var usingASCIIMath = true; var AMnoMathML = false; var MathJaxCompatible = true; var mathRenderer = "MathJax"; function rendermathnode(node) { MathJax.Hub.Queue(["Typeset", MathJax.Hub, node]); } </script><style type="text/css">span.MathJax { font-size: 105%;}</style><script src="multiembedq_data_004/ASCIIsvg_min.js" type="text/javascript"></script>
+<script type="text/javascript">var usingASCIISvg = true;</script><!--[if lte IE 6]>
+<style type="text/css">
+div { zoom: 1; }
+.clear { line-height: 0;}
+#mqarea { height: 2em;}
+#GB_overlay, #GB_window {
+ position: absolute;
+ top: expression(0+((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+'px');
+ left: expression(0+((e=document.documentElement.scrollLeft)?e:document.body.scrollLeft)+'px');}
+}
+</style>
+<![endif]-->
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+<script type="text/javascript" src="/javascript/excanvas_min.js?v=120811"></script>
+<![endif]-->
+
+
+
+<script type="text/javascript" src="multiembedq_data_004/tinymce_bundled.js"></script>
+<script type="text/javascript">var usingTinymceEditor = true;var coursetheme = "otbs.css";var tinymceUseSnippets = 0;var filePickerCallBackFunc = filePickerCallBack;initeditor("textareas","mceEditor",1);</script><link rel="stylesheet" href="multiembedq_data_004/imathasfont.css" type="text/css"><!--[if lte IE 7]><link rel="stylesheet" href="/iconfonts/imathasfontie7.css?v=013118" type="text/css" /><![endif]--><link rel="stylesheet" href="multiembedq_data_004/mathquill.css" type="text/css"><script type="text/javascript" src="multiembedq_data_004/MQbundle_min.js"></script><style type="text/css"> div.question input.btn { margin-left: 10px; } </style><style type="text/css">html,body {margin:0px;} div.question {width: auto;} div.review {width: auto; margin-top: 5px;} body {height:auto;}</style><script type="text/javascript">
+	function sendresizemsg() {
+	 if(self != top){
+	  var default_height = Math.max(
+              document.body.scrollHeight, document.body.offsetHeight,
+              document.documentElement.clientHeight, document.documentElement.scrollHeight,
+              document.documentElement.offsetHeight);
+	  window.parent.postMessage( JSON.stringify({
+	      subject: "lti.frameResize",
+	      height: default_height,
+	      iframe_resize_id: "mom5",
+	      element_id: "mom5",
+	      frame_id: "mom5"
+	  }), "*");
+	 }
+	}
+	if (mathRenderer == "Katex") {
+		window.katexDoneCallback = sendresizemsg;
+	} else if (typeof MathJax != "undefined") {
+		MathJax.Hub.Queue(function () {
+			sendresizemsg();
+		});
+	} else {
+		$(function() {
+			sendresizemsg();
+		});
+	}
+	$(function() {
+		$(window).on("ImathasEmbedReload", sendresizemsg);
+	});
+	</script><script type="text/x-mathjax-config;executed=true">
+			MathJax.Hub.Queue(function () {
+				sendresizemsg();
+			});
+			</script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888; display: contents}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.mjx-chtml {display: inline-block; line-height: 0; text-indent: 0; text-align: left; text-transform: none; font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; letter-spacing: normal; word-wrap: normal; word-spacing: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; margin: 0; padding: 1px 0}
+.MJXc-display {display: block; text-align: center; margin: 1em 0; padding: 0}
+.mjx-chtml[tabindex]:focus, body :focus .mjx-chtml[tabindex] {display: inline-table}
+.mjx-full-width {text-align: center; display: table-cell!important; width: 10000em}
+.mjx-math {display: inline-block; border-collapse: separate; border-spacing: 0}
+.mjx-math * {display: inline-block; -webkit-box-sizing: content-box!important; -moz-box-sizing: content-box!important; box-sizing: content-box!important; text-align: left}
+.mjx-numerator {display: block; text-align: center}
+.mjx-denominator {display: block; text-align: center}
+.MJXc-stacked {height: 0; position: relative}
+.MJXc-stacked > * {position: absolute}
+.MJXc-bevelled > * {display: inline-block}
+.mjx-stack {display: inline-block}
+.mjx-op {display: block}
+.mjx-under {display: table-cell}
+.mjx-over {display: block}
+.mjx-over > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-under > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-stack > .mjx-sup {display: block}
+.mjx-stack > .mjx-sub {display: block}
+.mjx-prestack > .mjx-presup {display: block}
+.mjx-prestack > .mjx-presub {display: block}
+.mjx-delim-h > .mjx-char {display: inline-block}
+.mjx-surd {vertical-align: top}
+.mjx-surd + .mjx-box {display: inline-flex}
+.mjx-mphantom * {visibility: hidden}
+.mjx-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 2px 3px; font-style: normal; font-size: 90%}
+.mjx-annotation-xml {line-height: normal}
+.mjx-menclose > svg {fill: none; stroke: currentColor; overflow: visible}
+.mjx-mtr {display: table-row}
+.mjx-mlabeledtr {display: table-row}
+.mjx-mtd {display: table-cell; text-align: center}
+.mjx-label {display: table-row}
+.mjx-box {display: inline-block}
+.mjx-block {display: block}
+.mjx-span {display: inline}
+.mjx-char {display: block; white-space: pre}
+.mjx-itable {display: inline-table; width: auto}
+.mjx-row {display: table-row}
+.mjx-cell {display: table-cell}
+.mjx-table {display: table; width: 100%}
+.mjx-line {display: block; height: 0}
+.mjx-strut {width: 0; padding-top: 1em}
+.mjx-vsize {width: 0}
+.MJXc-space1 {margin-left: .167em}
+.MJXc-space2 {margin-left: .222em}
+.MJXc-space3 {margin-left: .278em}
+.mjx-chartest {display: block; visibility: hidden; position: absolute; top: 0; line-height: normal; font-size: 500%}
+.mjx-chartest .mjx-char {display: inline}
+.mjx-chartest .mjx-box {padding-top: 1000px}
+.MJXc-processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MJXc-processed {display: none}
+.mjx-test {font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.mjx-test.mjx-test-display {display: table!important}
+.mjx-test.mjx-test-inline {display: inline!important; margin-right: -1px}
+.mjx-test.mjx-test-default {display: block!important; clear: both}
+.mjx-ex-box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60ex}
+.mjx-test-inline .mjx-left-box {display: inline-block; width: 0; float: left}
+.mjx-test-inline .mjx-right-box {display: inline-block; width: 0; float: right}
+.mjx-test-display .mjx-right-box {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+#MathJax_CHTML_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MJXc-TeX-unknown-R {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: normal}
+.MJXc-TeX-unknown-I {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: normal}
+.MJXc-TeX-unknown-B {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: bold}
+.MJXc-TeX-unknown-BI {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: bold}
+.MJXc-TeX-ams-R {font-family: MJXc-TeX-ams-R,MJXc-TeX-ams-Rw}
+.MJXc-TeX-cal-B {font-family: MJXc-TeX-cal-B,MJXc-TeX-cal-Bx,MJXc-TeX-cal-Bw}
+.MJXc-TeX-frak-R {font-family: MJXc-TeX-frak-R,MJXc-TeX-frak-Rw}
+.MJXc-TeX-frak-B {font-family: MJXc-TeX-frak-B,MJXc-TeX-frak-Bx,MJXc-TeX-frak-Bw}
+.MJXc-TeX-math-BI {font-family: MJXc-TeX-math-BI,MJXc-TeX-math-BIx,MJXc-TeX-math-BIw}
+.MJXc-TeX-sans-R {font-family: MJXc-TeX-sans-R,MJXc-TeX-sans-Rw}
+.MJXc-TeX-sans-B {font-family: MJXc-TeX-sans-B,MJXc-TeX-sans-Bx,MJXc-TeX-sans-Bw}
+.MJXc-TeX-sans-I {font-family: MJXc-TeX-sans-I,MJXc-TeX-sans-Ix,MJXc-TeX-sans-Iw}
+.MJXc-TeX-script-R {font-family: MJXc-TeX-script-R,MJXc-TeX-script-Rw}
+.MJXc-TeX-type-R {font-family: MJXc-TeX-type-R,MJXc-TeX-type-Rw}
+.MJXc-TeX-cal-R {font-family: MJXc-TeX-cal-R,MJXc-TeX-cal-Rw}
+.MJXc-TeX-main-B {font-family: MJXc-TeX-main-B,MJXc-TeX-main-Bx,MJXc-TeX-main-Bw}
+.MJXc-TeX-main-I {font-family: MJXc-TeX-main-I,MJXc-TeX-main-Ix,MJXc-TeX-main-Iw}
+.MJXc-TeX-main-R {font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw}
+.MJXc-TeX-math-I {font-family: MJXc-TeX-math-I,MJXc-TeX-math-Ix,MJXc-TeX-math-Iw}
+.MJXc-TeX-size1-R {font-family: MJXc-TeX-size1-R,MJXc-TeX-size1-Rw}
+.MJXc-TeX-size2-R {font-family: MJXc-TeX-size2-R,MJXc-TeX-size2-Rw}
+.MJXc-TeX-size3-R {font-family: MJXc-TeX-size3-R,MJXc-TeX-size3-Rw}
+.MJXc-TeX-size4-R {font-family: MJXc-TeX-size4-R,MJXc-TeX-size4-Rw}
+.MJXc-TeX-vec-R {font-family: MJXc-TeX-vec-R,MJXc-TeX-vec-Rw}
+.MJXc-TeX-vec-B {font-family: MJXc-TeX-vec-B,MJXc-TeX-vec-Bx,MJXc-TeX-vec-Bw}
+@font-face {font-family: MJXc-TeX-ams-R; src: local('MathJax_AMS'), local('MathJax_AMS-Regular')}
+@font-face {font-family: MJXc-TeX-ams-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_AMS-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_AMS-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_AMS-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-B; src: local('MathJax_Caligraphic Bold'), local('MathJax_Caligraphic-Bold')}
+@font-face {font-family: MJXc-TeX-cal-Bx; src: local('MathJax_Caligraphic'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-cal-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-R; src: local('MathJax_Fraktur'), local('MathJax_Fraktur-Regular')}
+@font-face {font-family: MJXc-TeX-frak-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-B; src: local('MathJax_Fraktur Bold'), local('MathJax_Fraktur-Bold')}
+@font-face {font-family: MJXc-TeX-frak-Bx; src: local('MathJax_Fraktur'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-frak-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-BI; src: local('MathJax_Math BoldItalic'), local('MathJax_Math-BoldItalic')}
+@font-face {font-family: MJXc-TeX-math-BIx; src: local('MathJax_Math'); font-weight: bold; font-style: italic}
+@font-face {font-family: MJXc-TeX-math-BIw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Math-BoldItalic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Math-BoldItalic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Math-BoldItalic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-R; src: local('MathJax_SansSerif'), local('MathJax_SansSerif-Regular')}
+@font-face {font-family: MJXc-TeX-sans-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-B; src: local('MathJax_SansSerif Bold'), local('MathJax_SansSerif-Bold')}
+@font-face {font-family: MJXc-TeX-sans-Bx; src: local('MathJax_SansSerif'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-sans-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-I; src: local('MathJax_SansSerif Italic'), local('MathJax_SansSerif-Italic')}
+@font-face {font-family: MJXc-TeX-sans-Ix; src: local('MathJax_SansSerif'); font-style: italic}
+@font-face {font-family: MJXc-TeX-sans-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-script-R; src: local('MathJax_Script'), local('MathJax_Script-Regular')}
+@font-face {font-family: MJXc-TeX-script-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Script-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Script-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Script-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-type-R; src: local('MathJax_Typewriter'), local('MathJax_Typewriter-Regular')}
+@font-face {font-family: MJXc-TeX-type-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Typewriter-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Typewriter-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Typewriter-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-R; src: local('MathJax_Caligraphic'), local('MathJax_Caligraphic-Regular')}
+@font-face {font-family: MJXc-TeX-cal-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-B; src: local('MathJax_Main Bold'), local('MathJax_Main-Bold')}
+@font-face {font-family: MJXc-TeX-main-Bx; src: local('MathJax_Main'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-main-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Main-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-I; src: local('MathJax_Main Italic'), local('MathJax_Main-Italic')}
+@font-face {font-family: MJXc-TeX-main-Ix; src: local('MathJax_Main'); font-style: italic}
+@font-face {font-family: MJXc-TeX-main-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Main-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-R; src: local('MathJax_Main'), local('MathJax_Main-Regular')}
+@font-face {font-family: MJXc-TeX-main-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-I; src: local('MathJax_Math Italic'), local('MathJax_Math-Italic')}
+@font-face {font-family: MJXc-TeX-math-Ix; src: local('MathJax_Math'); font-style: italic}
+@font-face {font-family: MJXc-TeX-math-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Math-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size1-R; src: local('MathJax_Size1'), local('MathJax_Size1-Regular')}
+@font-face {font-family: MJXc-TeX-size1-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Size1-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size2-R; src: local('MathJax_Size2'), local('MathJax_Size2-Regular')}
+@font-face {font-family: MJXc-TeX-size2-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Size2-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size3-R; src: local('MathJax_Size3'), local('MathJax_Size3-Regular')}
+@font-face {font-family: MJXc-TeX-size3-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Size3-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size4-R; src: local('MathJax_Size4'), local('MathJax_Size4-Regular')}
+@font-face {font-family: MJXc-TeX-size4-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Size4-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-vec-R; src: local('MathJax_Vector'), local('MathJax_Vector-Regular')}
+@font-face {font-family: MJXc-TeX-vec-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Vector-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Vector-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Vector-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-vec-B; src: local('MathJax_Vector Bold'), local('MathJax_Vector-Bold')}
+@font-face {font-family: MJXc-TeX-vec-Bx; src: local('MathJax_Vector'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-vec-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Vector-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Vector-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Vector-Bold.otf') format('opentype')}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+</style></head><body class="fw"><div id="MathJax_Message" style="display: none;"></div>
+<div class="mainbody"><div class="midwrapper" role="main"><div style="position:absolute;width:1px;height:1px;left:0px:top:-1px;overflow:hidden;"><a href="https://www.myopenmath.com/multiembedq.php?id=6581&amp;theme=oea&amp;iframe_resize_id=mom5&amp;graphdisp=0">Enable text based alternatives for graph display and drawing entry</a></div><script type="text/javascript">var assesspostbackurl="https://www.myopenmath.com/multiembedq.php?embedpostback=true&action=scoreembed";</script><input type="hidden" id="asidverify" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJxaWRzIjpbIjY1ODEiXSwic2VlZHMiOls4Mjc0XSwicmF3c2NvcmVzIjpbLTFdLCJhdHRlbXB0cyI6WzBdLCJsYXN0YW5zd2VycyI6WyIiXSwic2FtZXNlZWQiOjAsInRoZW1lIjoib2VhIiwidGFyZ2V0aWQiOiJtb201In0.kwvXEj5pySsPvvcdfw5o3kHtonjstRRmtDKl1un0bbM" autocapitalize="none"><input type="hidden" id="disptime" value="1607969641" autocapitalize="none"><input type="hidden" id="isreview" value="0" autocapitalize="none"><p><a href="https://www.myopenmath.com/multiembedq.php?id=6581&amp;regen=1&amp;sameseed=0&amp;theme=oea&amp;iframe_resize_id=mom5">Try Another Version of This Question</a></p><div id="embedqwrapper0" class="embedqwrapper"><div class="question" role="region" aria-label="Question"><div>
+<svg id="ASnewid0" style="display: inline; vertical-align: middle; height: 300px; width: 360px;" width="360" height="300" alt="" role="img" data-script="setBorder(60,30,60,30);initPicture(-10,10,-10,10); fontsize=14;fontstyle=&quot;none&quot;;marker=null;line([0,0],[10,0]);line([0,0],[-5,8.6602540378444]);line([0,0],[-5,-8.6602540378444]);line([10,0],[-5,8.6602540378444]);line([10,0],[-5,-8.6602540378444]);line([-5,8.6602540378444],[-5,-8.6602540378444]);fontbackground=&quot;white&quot;;fontfill=&quot;blue&quot;;text([0,0],&quot;A&quot;,&quot;belowleft&quot;);dot([0,0]);fontfill=&quot;red&quot;;text([5,0],&quot;4&quot;);fontfill=&quot;red&quot;;text([-2.5,4.3301270189222],&quot;6&quot;);fontfill=&quot;red&quot;;text([-2.5,-4.3301270189222],&quot;15&quot;);fontfill=&quot;blue&quot;;text([10,0],&quot;B&quot;,&quot;belowright&quot;);dot([10,0]);fontfill=&quot;red&quot;;text([2.5,4.3301270189222],&quot;9&quot;);fontfill=&quot;red&quot;;text([2.5,-4.3301270189222],&quot;11&quot;);fontfill=&quot;blue&quot;;text([-5,8.6602540378444],&quot;C&quot;,&quot;aboveleft&quot;);dot([-5,8.6602540378444]);fontfill=&quot;red&quot;;text([-5,1.7763568394003E-15],&quot;7&quot;);fontfill=&quot;blue&quot;;text([-5,-8.6602540378444],&quot;D&quot;,&quot;belowleft&quot;);dot([-5,-8.6602540378444]);" xunitlength="12" yunitlength="12" xmin="-10" xmax="10" ymin="-10" ymax="10" ox="180" oy="150"><circle id="pointerpos" cx="0" cy="0" r="0.5" fill="red"></circle><rect x="0" y="0" width="360" height="300" style="stroke-width:1;fill:white"></rect><path id="undefined" d="M180,150 300,150" stroke-width="1" stroke="black" fill="none"></path><path id="undefined" d="M180,150 120,46.07695154586719" stroke-width="1" stroke="black" fill="none"></path><path id="undefined" d="M180,150 120,253.9230484541328" stroke-width="1" stroke="black" fill="none"></path><path id="undefined" d="M300,150 120,46.07695154586719" stroke-width="1" stroke="black" fill="none"></path><path id="undefined" d="M300,150 120,253.9230484541328" stroke-width="1" stroke="black" fill="none"></path><path id="undefined" d="M120,46.07695154586719 120,253.9230484541328" stroke-width="1" stroke="black" fill="none"></path><rect fill="white" stroke-width="0px" x="161.21665954589844" y="152" width="14.116666793823242" height="19"></rect><text id="undefined" x="173.33333333333334" y="166" font-style="none" font-family="times" font-size="14" font-weight="normal" text-anchor="end" fill="blue" stroke-width="0px">A</text><circle id="undefined" cx="180" cy="150" r="4" stroke-width="1" stroke="black" fill="black"></circle><rect fill="white" stroke-width="0px" x="233.5500030517578" y="140.6666717529297" width="12.899999618530273" height="19"></rect><text id="undefined" x="240" y="154.66666666666666" font-style="none" font-family="times" font-size="14" font-weight="normal" text-anchor="middle" fill="red" stroke-width="0px">4</text><rect fill="white" stroke-width="0px" x="143.5500030517578" y="88.70513916015625" width="12.899999618530273" height="19"></rect><text id="undefined" x="150" y="102.70514243960027" font-style="none" font-family="times" font-size="14" font-weight="normal" text-anchor="middle" fill="red" stroke-width="0px">6</text><rect fill="white" stroke-width="0px" x="139.10000610351562" y="192.62818908691406" width="21.799999237060547" height="19"></rect><text id="undefined" x="150" y="206.62819089373306" font-style="none" font-family="times" font-size="14" font-weight="normal" text-anchor="middle" fill="red" stroke-width="0px">15</text><rect fill="white" stroke-width="0px" x="304.6666564941406" y="152" width="14.283333778381348" height="19"></rect><text id="undefined" x="306.6666666666667" y="166" font-style="none" font-family="times" font-size="14" font-weight="normal" text-anchor="start" fill="blue" stroke-width="0px">B</text><circle id="undefined" cx="300" cy="150" r="4" stroke-width="1" stroke="black" fill="black"></circle><rect fill="white" stroke-width="0px" x="203.5500030517578" y="88.70513916015625" width="12.899999618530273" height="19"></rect><text id="undefined" x="210" y="102.70514243960027" font-style="none" font-family="times" font-size="14" font-weight="normal" text-anchor="middle" fill="red" stroke-width="0px">9</text><rect fill="white" stroke-width="0px" x="199.10000610351562" y="192.62818908691406" width="21.799999237060547" height="19"></rect><text id="undefined" x="210" y="206.62819089373306" font-style="none" font-family="times" font-size="14" font-weight="normal" text-anchor="middle" fill="red" stroke-width="0px">11</text><rect fill="white" stroke-width="0px" x="100.61666870117188" y="25.41028594970703" width="14.716666221618652" height="19"></rect><text id="undefined" x="113.33333333333333" y="39.410284879200525" font-style="none" font-family="times" font-size="14" font-weight="normal" text-anchor="end" fill="blue" stroke-width="0px">C</text><circle id="undefined" cx="120" cy="46.07695154586719" r="4" stroke-width="1" stroke="black" fill="black"></circle><rect fill="white" stroke-width="0px" x="113.55000305175781" y="140.6666717529297" width="12.899999618530273" height="19"></rect><text id="undefined" x="120" y="154.66666666666663" font-style="none" font-family="times" font-size="14" font-weight="normal" text-anchor="middle" fill="red" stroke-width="0px">7</text><rect fill="white" stroke-width="0px" x="100.11666870117188" y="255.92303466796875" width="15.216666221618652" height="19"></rect><text id="undefined" x="113.33333333333333" y="269.9230484541328" font-style="none" font-family="times" font-size="14" font-weight="normal" text-anchor="end" fill="blue" stroke-width="0px">D</text><circle id="undefined" cx="120" cy="253.9230484541328" r="4" stroke-width="1" stroke="black" fill="black"></circle><circle id="magglass1" cx="350" cy="290" r="5" stroke-width="2" stroke="grey" stroke-opacity="0.5" fill="none"></circle><line id="magglass2" x1="359" y1="299" x2="354" y2="294" stroke-width="2" stroke="grey" stroke-opacity="0.5" fill="none"></line><rect id="magglass3" x="340" y="280" width="20" height="20" stroke="none" fill="white" fill-opacity="0.01" style="cursor: pointer;" tabindex="0" aria-label="Expand Graph"></rect></svg><embed type="image/svg+xml" wmode="transparent" id="ASnewid0-embed" style="display: none;" width="360" height="300" align="middle"><span class="sr-only">[Graphs
+ generated by this script: 
+setBorder(60,30,60,30);initPicture(-10,10,-10,10); 
+fontsize=14;fontstyle='none';marker=null;line([0,0],[10,0]);line([0,0],[-5,8.6602540378444]);line([0,0],[-5,-8.6602540378444]);line([10,0],[-5,8.6602540378444]);line([10,0],[-5,-8.6602540378444]);line([-5,8.6602540378444],[-5,-8.6602540378444]);fontbackground='white';fontfill='blue';text([0,0],'A','belowleft');dot([0,0]);fontfill='red';text([5,0],'4');fontfill='red';text([-2.5,4.3301270189222],'6');fontfill='red';text([-2.5,-4.3301270189222],'15');fontfill='blue';text([10,0],'B','belowright');dot([10,0]);fontfill='red';text([2.5,4.3301270189222],'9');fontfill='red';text([2.5,-4.3301270189222],'11');fontfill='blue';text([-5,8.6602540378444],'C','aboveleft');dot([-5,8.6602540378444]);fontfill='red';text([-5,1.7763568394003E-15],'7');fontfill='blue';text([-5,-8.6602540378444],'D','belowleft');dot([-5,-8.6602540378444]);]</span><br><br>
+Find the minimum cost spanning tree on the graph above using Kruskal's 
+algorithm.  Which of the edges below are included in the minimum cost 
+tree?</div>
+<div class="toppad"><input type="hidden" name="qn0-choicemap" value="NS4yJlzRImhh1m+7ipDSyA==.b9/bJDkVTIPN4aDjaT9RuQ==" autocapitalize="none"><div class="clearfix" id="qnwrap0" style="display:block" role="group" aria-label="Select one, none, or multiple answers"><ul class="nomark"><li><input class="unind" type="checkbox" name="qn0[0]" value="0" id="qn0-0" autocapitalize="none"><label for="qn0-0">AB</label></li> 
+<li><input class="unind" type="checkbox" name="qn0[1]" value="1" id="qn0-1" autocapitalize="none"><label for="qn0-1">CD</label></li> 
+<li><input class="unind" type="checkbox" name="qn0[2]" value="2" id="qn0-2" autocapitalize="none"><label for="qn0-2">AC</label></li> 
+<li><input class="unind" type="checkbox" name="qn0[3]" value="3" id="qn0-3" autocapitalize="none"><label for="qn0-3">BC</label></li> 
+<li><input class="unind" type="checkbox" name="qn0[4]" value="4" id="qn0-4" autocapitalize="none"><label for="qn0-4">BD</label></li> 
+<li><input class="unind" type="checkbox" name="qn0[5]" value="5" id="qn0-5" autocapitalize="none"><label for="qn0-5">AD</label></li> 
+</ul>
+</div></div>
+<div><p class="tips">Get help: <span class="spanbutton" onclick="popupwindow('video','https://www.myopenmath.com/assessment/watchvid.php?url=http%3A%2F%2Fyoutu.be%2Fd4BEgzK08JE%3Ft%3D%26start42%26end%3D%26145',873,500,1)">Video</span></p></div><div><p class="tips" style="display:none;">Box 1: <span id="tips0-0">Select all correct answers</span></p></div>
+<br><input type="button" class="btn" value="Submit" onclick="assessbackgsubmit(0,'submitnotice0')" autocapitalize="none"><span id="submitnotice0"></span></div><input type="hidden" id="verattempts0" value="0" autocapitalize="none"></div><div class="clear"></div>
+</div>
+<div class="footerwrapper"></div>
+</div>
+<div id="mqeedd" class="mqeedd" onclick="showee();">↑</div>
+<div id="mqee">
+<div id="mqeetopbar"><div id="mqeeclosebutton">X</div><span>MathQuill</span></div>
+<div id="mqeeinsides">
+<div id="mqeeeditorcont">
+
+<div id="bigtabcontainer">
+<ul class="tabs">
+	<li><a href="#tabs-basic">Basic</a></li>
+	<li><a href="#tabs-general">General</a></li>
+	<li><a href="#tabs-intervals">Intervals</a></li>
+	<li><a href="#tabs-inequalities">Inequalities</a></li>
+	<li><a href="#tabs-functions">Functions</a></li>
+	<li><a href="#tabs-trig">Trig</a></li>
+</ul>
+<div class="tab_container">
+<div id="tabs-basic" class="tab_content" style="display: none;">
+<table>
+<tbody><tr>
+<td class="mqeebtn" btntext="\\frac" btntype="7">
+<span class="mathquill-rendered-math"><span class="fraction non-leaf"><span class="numerator"><span class="emptybox wide">&nbsp;</span></span><span class="denominator"><span class="emptybox wide">&nbsp;</span></span></span></span>
+</td>
+<td class="mqeebtn" btntext="^" btntype="2">
+<span class="mathquill-rendered-math"><var>x</var><sup class="non-leaf"><span class="emptybox">&nbsp;</span></sup></span>
+</td>
+<td class="mqeebtn" btntext="_" btntype="2">
+<span class="mathquill-rendered-math"><var>x</var><sub class="non-leaf"><span class="emptybox">&nbsp;</span></sub></span>
+</td>
+<td class="mqeebtn" btntext="\\sqrt" btntype="2">
+<span class="mathquill-rendered-math"><span class="non-leaf"><span class="scaled sqrt-prefix" style="transform: scale(1, 0.9);">√</span><span class="sqrt-stem non-leaf"><span class="emptybox">&nbsp;</span></span></span></span>
+</td>
+<td class="mqeebtn" btntext="\\nthroot{3}" btntype="2">
+<span class="mathquill-rendered-math"><sup class="nthroot non-leaf"><var>n</var></sup><span class="scaled"><span class="scaled sqrt-prefix" style="transform: scale(1, 0.9);">√</span><span class="sqrt-stem non-leaf"><span class="emptybox">&nbsp;</span></span></span></span>
+</td>
+<td class="mqeebtn" btntext="|" btntype="6">
+<span class="mathquill-rendered-math">
+  <span class="non-leaf">
+    <span class="paren scaled" style="font-size: 120%">|</span>
+    <span class="non-leaf">
+      <span class="emptybox brack">&nbsp;</span>
+    </span>
+    <span class="paren" style="font-size: 120%">|</span>
+  </span>
+</span>
+</td>
+<td class="mqeebtn" btntext="(" btntype="6">
+<span class="mathquill-rendered-math">
+  <span class="non-leaf">
+    <span class="paren" style="font-size: 120%">(</span>
+    <span class="non-leaf">
+      <span class="emptybox brack">&nbsp;</span>
+    </span>
+    <span class="paren" style="font-size: 120%">)</span>
+  </span>
+</span>
+</td>
+<td class="mqeebtn" btntext="\\pi" btntype="1">
+<span class="mathquill-rendered-math"><span class="nonSymbola">π</span></span>
+</td>
+<td class="mqeebtn" btntext="\\infty" btntype="1">
+<span class="mathquill-rendered-math"><span>∞</span></span>
+</td>
+<td class="mqeebtn" btntext="DNE" btntype="1">DNE</td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="tabs-general" class="tab_content" style="display: none;">
+<table>
+<tbody><tr>
+<td class="mqeebtn" btntext="\\frac" btntype="7">
+<span class="mathquill-rendered-math"><span class="fraction non-leaf"><span class="numerator"><span class="emptybox wide">&nbsp;</span></span><span class="denominator"><span class="emptybox wide">&nbsp;</span></span></span></span>
+</td>
+<td class="mqeebtn" btntext="^" btntype="2">
+<span class="mathquill-rendered-math"><var>x</var><sup class="non-leaf"><span class="emptybox">&nbsp;</span></sup></span>
+</td>
+<td class="mqeebtn" btntext="\\sqrt" btntype="2">
+<span class="mathquill-rendered-math"><span class="non-leaf"><span class="scaled sqrt-prefix" style="transform: scale(1, 0.9);">√</span><span class="sqrt-stem non-leaf"><span class="emptybox">&nbsp;</span></span></span></span>
+</td>
+<td class="mqeebtn" btntext="(" btntype="6">
+<span class="mathquill-rendered-math">
+  <span class="non-leaf">
+    <span class="paren" style="font-size: 120%">(</span>
+    <span class="non-leaf">
+      <span class="emptybox brack">&nbsp;</span>
+    </span>
+    <span class="paren" style="font-size: 120%">)</span>
+  </span>
+</span></td>
+<td class="mqeebtn" btntext="\\pi" btntype="1">
+<span class="mathquill-rendered-math"><span class="nonSymbola">π</span></span>
+</td>
+<td class="mqeebtn" btntext="\\infty" btntype="1">
+<span class="mathquill-rendered-math"><span>∞</span></span>
+</td>
+<td class="mqeebtn" btntext="DNE" btntype="1">DNE</td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="tabs-intervals" class="tab_content" style="display: none;">
+<table>
+<tbody><tr>
+<td class="mqeebtn" btntext="(" btntype="4">
+<span class="mathquill-rendered-math"><span class="block"><span class="paren" style="font-size: 120%">(</span><span class="block"><span class="emptybox brack">&nbsp;</span></span><span class="paren" style="font-size: 120%">)</span></span></span>
+</td>
+<td class="mqeebtn" btntext="\\intervalopenleft" btntype="4">
+<span class="mathquill-rendered-math"><span class="block"><span class="paren" style="font-size: 120%">(</span><span class="block"><span class="emptybox brack">&nbsp;</span></span><span class="paren" style="font-size: 120%">]</span></span></span>
+</td>
+<td class="mqeebtn" btntext="\\intervalopenright" btntype="4">
+<span class="mathquill-rendered-math"><span class="block"><span class="paren" style="font-size: 120%">[</span><span class="block"><span class="emptybox brack">&nbsp;</span></span><span class="paren" style="font-size: 120%">)</span></span></span>
+</td> 
+<td class="mqeebtn" btntext="[" btntype="4">
+<span class="mathquill-rendered-math"><span class="block"><span class="paren" style="font-size: 120%">[</span><span class="block"><span class="emptybox brack">&nbsp;</span></span><span class="paren" style="font-size: 120%">]</span></span></span>
+</td>
+<td class="mqeebtn" btntext="-\\infty" btntype="1">
+<span class="mathquill-rendered-math"><span class="non-leaf">—∞</span></span>
+</td>
+<td class="mqeebtn" btntext="\\infty" btntype="1">
+<span class="mathquill-rendered-math"><span class="non-leaf">∞</span></span>
+</td>
+<td class="mqeebtn" btntext="\\cup" btntype="1">
+<span class="mathquill-rendered-math"><span class="binary-operator">∪</span></span>
+</td>
+<td class="mqeebtn" btntext="DNE" btntype="1">DNE</td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="tabs-inequalities" class="tab_content" style="display: none;">
+<table>
+<tbody><tr>
+<td class="mqeebtn" btntext="&lt;" btntype="1">
+<span class="mathquill-rendered-math"><span>&lt;</span></span>
+</td>
+<td class="mqeebtn" btntext="&gt;" btntype="1">
+<span class="mathquill-rendered-math"><span>&gt;</span></span>
+</td>
+<td class="mqeebtn" btntext="\\le" btntype="1">
+<span class="mathquill-rendered-math"><span>≤</span></span>
+</td>
+<td class="mqeebtn" btntext="\\ge" btntype="1">
+<span class="mathquill-rendered-math"><span>≥</span></span>
+</td>
+<td class="mqeebtn" btntext="\\text{ or }" btntype="1">or</td>
+<td class="mqeebtn" btntext="\\text{all real numbers}" btntype="1">All Real Numbers</td>
+<td class="mqeebtn" btntext="DNE" btntype="1">DNE</td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="tabs-functions" class="tab_content" style="display: none;">
+<table>
+<tbody><tr>
+<td class="mqeebtn" btntext="\\log" btntype="3">
+<span class="mathquill-rendered-math"><span class="non-leaf">log</span></span>
+</td>
+<td class="mqeebtn" btntext="\\log_2" btntype="3">
+<span class="mathquill-rendered-math"><span class="non-leaf">log</span><sub><var>n</var></sub></span>
+</td>
+<td class="mqeebtn" btntext="\\ln" btntype="3">
+<span class="mathquill-rendered-math"><span class="non-leaf">ln</span></span>
+</td>
+<td class="mqeebtn" btntext="\\nthroot{3}" btntype="2">
+<span class="mathquill-rendered-math"><sup class="nthroot non-leaf"><var>n</var></sup><span class="scaled"><span class="scaled sqrt-prefix" style="transform: scale(1, 0.9);">√</span><span class="sqrt-stem non-leaf"><span class="emptybox">&nbsp;</span></span></span></span>
+</td>
+<td class="mqeebtn" btntext="|" btntype="6">
+<span class="mathquill-rendered-math"><span class="non-leaf"><span class="paren" style="font-size: 120%">|</span><span class="block"><span class="emptybox brack">&nbsp;</span></span><span class="paren" style="font-size: 120%">|</span></span></span>
+</td>
+<td class="mqeebtn" btntext="e^" btntype="2">
+<span class="mathquill-rendered-math"><var>e</var><sup class="non-leaf"><span class="emptybox">&nbsp;</span></sup></span>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="tabs-trig" class="tab_content" style="display: none;">
+<table>
+<tbody><tr>
+<td class="mqeebtn" btntext="\\sin" btntype="3">
+<span class="mathquill-rendered-math"><span class="non-leaf">sin</span></span>
+</td>
+<td class="mqeebtn" btntext="\\cos" btntype="3">
+<span class="mathquill-rendered-math"><span class="non-leaf">cos</span></span>
+</td>
+<td class="mqeebtn" btntext="\\tan" btntype="3">
+<span class="mathquill-rendered-math"><span class="non-leaf">tan</span></span>
+</td>
+<td class="mqeebtn" btntext="\\arcsin" btntype="3">
+<span class="mathquill-rendered-math"><span class="non-leaf">arcsin</span></span>
+</td>
+<td class="mqeebtn" btntext="\\arccos" btntype="3">
+<span class="mathquill-rendered-math"><span class="non-leaf">arccos</span></span>
+</td>
+<td class="mqeebtn" btntext="\\arctan" btntype="3">
+<span class="mathquill-rendered-math"><span class="non-leaf">arctan</span></span>
+</td>
+<td class="mqeebtn" btntext="\\langle" btntype="2">
+<span class="mathquill-rendered-math"><span class="block"><span class="paren" style="font-size: 120%">⟨</span><span class="block"><span class="emptybox brack">&nbsp;</span></span><span class="paren" style="font-size: 120%">⟩</span></span></span>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+
+
+<div id="mqholder"><span class="mathquill-editable mathquill-rendered-math empty" id="mqarea" mathquill-block-id="1"><span class="textarea"><textarea autocapitalize="none"></textarea></span></span></div>
+</div>
+
+<input type="button" value="Save" onclick="savemathquill()" style="float: right;" autocapitalize="none">
+<table class="cursor-icons">
+<tbody><tr><td class="mqeebtn" btntext="l" btntype="5" rowspan="2"><div class="left">&nbsp;</div></td>
+  <td class="mqeebtn" btntext="u" btntype="5"><div class="up">&nbsp;</div></td>
+  <td class="mqeebtn" btntext="r" btntype="5" rowspan="2"><div class="right">&nbsp;</div></td>
+  <td rowspan="2" style="width:25px;">&nbsp;</td><td rowspan="2" class="mqeebtn" btntext="b" btntype="5"><div class="back">&nbsp;</div></td></tr>
+<tr><td class="mqeebtn" btntext="d" btntype="5"><div class="down">&nbsp;</div></td></tr>
+</tbody></table>
+</div>
+</div>
+<div id="eebasicdd" class="eedd" onmousedown="showeebasicselstore(cureebasicdd)" onclick="showeebasic(cureebasicdd);"> </div>
+<div id="eebasic" style="position: absolute; width: auto; background: #ff0;padding: 5px; display:none;">
+<table id="eenumber">
+<tbody><tr>
+<td class="eebtn" onclick="eebasicinsert('symoo')">∞</td>
+<td class="eebtn" onclick="eebasicinsert('symDNE')">DNE</td>
+</tr>
+</tbody></table>
+<table id="eeinterval" style="display:none;">
+<tbody><tr>
+<td class="eebtn" onclick="eebasicinsert('sym-oo')">-∞</td>
+<td class="eebtn" onclick="eebasicinsert('symoo')">∞</td>
+<td class="eebtn" onclick="eebasicinsert('symU')">∪</td>
+<td class="eebtn" onclick="eebasicinsert('symDNE')">DNE</td>
+</tr>
+</tbody></table>
+</div>
+<div id="ehdd" class="ehdd"><span id="ehddtext"></span> <span onclick="showeh(curehdd);" style="cursor:pointer;">[more..]</span></div><div id="eh" class="eh"></div><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"NRJS-a1e4ff24cee7c0b20ca","applicationID":"253668236","transactionName":"blMAbEsEXxIEAENZXVcZN0pQSlwUCRdeVV9bUwZJFxVZEQ==","queueTime":0,"applicationTime":7,"atts":"QhQXGgMeTE1HAhUKSURL","errorBeacon":"bam-cell.nr-data.net","agent":""}</script>
+
+</body></html>
